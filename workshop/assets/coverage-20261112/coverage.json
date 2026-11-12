@@ -1,11 +1,11 @@
 {
   "rows": [
     {"key": "country", "vanilla": 0, "mod": 1566, "total": 1566},
-    {"key": "culture", "vanilla": 0, "mod": 2086, "total": 2087},
-    {"key": "dynasty", "vanilla": 0, "mod": 793, "total": 800},
+    {"key": "culture", "vanilla": 0, "mod": 2087, "total": 2087},
+    {"key": "dynasty", "vanilla": 0, "mod": 800, "total": 800},
     {"key": "language", "vanilla": 14, "mod": 528, "total": 528},
     {"key": "language_family", "vanilla": 0, "mod": 56, "total": 56},
     {"key": "holy_site", "vanilla": 8, "mod": 257, "total": 257},
-    {"key": "total", "vanilla": 22, "mod": 5286, "total": 5294}
+    {"key": "total", "vanilla": 22, "mod": 5294, "total": 5294}
   ]
 }

@@ -2,7 +2,7 @@
 
 Vanilla EU5 describes only 22 of these.
 
-This mod adds descriptions to [b]5,286[/b] of them: every country with land in 1337, every culture, every dynasty alive in 1337, and every language, language family and holy site. Hover over one to read it at the bottom of the tooltip.
+This mod adds descriptions to [b]5,294[/b] of them: every country with land in 1337, every culture, every dynasty alive in 1337, and every language, language family and holy site. Hover over one to read it at the bottom of the tooltip.
 
 [list]
 [*]Supports English and Chinese
