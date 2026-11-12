@@ -68,5 +68,6 @@ python -B tools\build.py --verify dist\<新目录>
 - 国家、文化、王朝：可定制本地化 `lde_country_desc`、`lde_culture_desc`、`lde_dynasty_desc` 按 `c:<代码>`、`culture:<ID>`、`dynasty = dynasty:<ID>` 选文本，各加一个空字符串兜底；浮窗模板用 `StringIsEmpty` 判断，没有介绍的不显示。王朝经 `Dynasty.GetDynastyHead.Custom` 取文本，没有在世领袖的王朝不显示。`对象.GetKey` 是内部序号，不能拼键名。
 - 本地化键和原版 32 位哈希相撞时（error.log 报 `Localization key hash collision`）在 `build.py` 的 `KEY_RENAMES` 换名，目前 `lde_ctry_KIM`、`lde_ctry_VEN`。
 - 游戏会在中文里的半角 `-` 后强行折行，`build.py` 把汉字之间的 `-` 换成 U+2011（原版中文的写法）。
+- 中文正文里夹的外文词（如金雀花王朝的 planta genista）会被游戏单独排成一行，前后都折行；数字在行尾也可能被拆开。是游戏排版对混排的处理，原版风味文本也一样，暂不处理（2026-11-12 截图时发现）。
 - 游戏开着时不要直接覆盖模组文件：`build.py --install` 先写临时目录、核对哈希，再整体改名替换。
 - 游戏更新改了原版浮窗模板（`--check --game-root` 报 `templates_unchanged` 有 false），要在研究工程更新 `data/vanilla_gui/` 并重新导出。
