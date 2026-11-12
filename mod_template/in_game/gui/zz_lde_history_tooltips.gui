@@ -1,0 +1,667 @@
+﻿# 由研究工程 tools/export_workshop.py 生成：原版三个浮窗模板加上历史介绍一块（游戏 1.4.7）
+
+template CountryTooltip {
+	ContextualTooltipType = {
+		blockoverride "title_icon" {
+			country_flag_mid = {
+				blockoverride "tooltip" {}
+			}
+		}
+
+		blockoverride "title_text" {
+			text = "[Country.GetLongNameWithNoTooltip]"
+		}
+
+		blockoverride "concept_link" {
+			text = "[country|e]"
+		}
+
+		blockoverride "tooltip_content" {
+            TooltipDebugStringPairList = {
+				textcontext = "[Country.GetDebugText]"
+			}
+
+			TooltipDebugTextBlock = {
+				visible = "[And(IsBuildDebug, Country.HasActiveAreaPreferences)]"
+				blockoverride "text" {
+					debug_text = "[Country.GetActiveAreaPreferencesInfo]"
+				}
+			}
+
+			TooltipTextBlock = {
+				visible = "[Not(StringIsEmpty(Country.GetIsHumanCountryTooltip))]"
+				textcontext = "[Country.GetIsHumanCountryTooltip]"
+			}
+
+			# relative power
+			TooltipContentSection = {
+				using = CountryTooltip_RelativePower
+			}
+			
+			TooltipStatsBar = {
+				blockoverride "items" {
+					TooltipStatBarItem = {
+						blockoverride "item_content" {
+							icon = {
+								size = { 31 31 }
+								texture = "[GetGovernmentTypeIcon(Country.GetGovernment.GetGovernmentType)]"
+							}
+						}
+
+						datacontext = "[Country.GetGovernment.GetGovernmentType]"
+						tooltipwidget = {
+							using = GovernmentType_tooltip
+						}
+					}
+
+					TooltipStatBarItem = {
+						blockoverride "item_content" {
+							icon = {
+								size = { 31 31 }
+								texture = "[GetCountryTypeIcon(Country.Self)]"
+							}
+						}
+
+						tooltipwidget = {
+							using = CountryType_tooltip
+						}
+					}
+
+					TooltipStatBarItem = {
+						blockoverride "item_content" {
+							icon = {
+								size = { 31 31 }
+								texture = "[GetCountryRankIcon(Country.GetRank)]"
+							}
+						}
+
+						datacontext = "[Country.GetRank]"
+						tooltipwidget = {
+							using = CountryRank_tooltip
+						}
+					}
+				}	
+			}
+
+			TooltipContentSection = {
+				using = CountryTooltip_DiplomacyStatBars
+			}
+
+			TooltipRowList = {
+				visible = "[And(Country.GetDiplomacy.IsDisloyalSubject, Country.GetDiplomacy.IsSubject)]"
+				lowpriotextcontext = "SubjectTypeDetail_DESC_NOT"
+				tooltipwidget = {
+					using = SubjectLoyalty_tooltip
+				}
+			}
+			TooltipRowList = {
+				visible = "[And(Not(Country.GetDiplomacy.IsDisloyalSubject), Country.GetDiplomacy.IsSubject)]"
+				lowpriotextcontext = "SubjectTypeDetail_DESC"
+				tooltipwidget = {
+					using = SubjectLoyalty_tooltip
+				}
+			}
+
+			# ruler
+			TooltipStringPairList = {
+				textcontext = "[Country.GetGovernment.GetRulerRegentHeirInfo]"
+			}
+
+			# table of country stats
+			TooltipListBase = {
+				ignoreinvisible = yes
+				TooltipManualTableField = { # Capital - Locations
+					hbox = {
+						spacing = 5
+
+						widget = {
+							size = { 24 24 }
+							tooltip = "[capital|e]"
+							tagtooltip_enabled = yes
+							icon = {
+								size = { 100% 100% }
+								using = icon_country_capital
+							}
+						}
+
+						text_single = {
+							autoresize = yes
+							align = right
+							raw_text = "[Country.GetCapital.GetName]"
+						}
+					}
+
+					expand = {}
+
+					hbox = {
+						tooltipwidget = {
+							using = towns_or_cities_tooltip
+						}
+						spacing = 5
+
+						text_single = {
+							autoresize = yes
+							align = right
+							text = "[Country.GetOwnedLocationCount|L]"
+						}
+						icon = {
+							size = { 24 24 }
+							texture = "gfx/interface/icons/map_subdivisons/location.dds"
+						}
+					}
+				}
+
+				TooltipManualTableField = { #POPULATION - Tax base
+					hbox = {
+						spacing = 5
+
+						widget = {
+							size = { 24 24 }
+							icon = {
+								size = { 100% 100% }
+								texture = "gfx/interface/icons/location_icons/population.dds"
+							}
+							tooltip = "[population|e]"
+							tagtooltip_enabled = yes
+						}
+
+						text_single = {
+							autoresize = yes
+							align = right
+							raw_text = "[Country.GetTotalPopulation]"
+						}
+					}
+
+					expand = {}
+
+					hbox = {
+						spacing = 5
+						text_single = {
+							visible = "[HasTaxBaseIntelOn(Country.Self)]"
+							autoresize = yes
+							align = right
+							raw_text = "[Country.GetTotalTaxBase]"
+						}
+
+						text_single = {
+							visible = "[Not(HasTaxBaseIntelOn(Country.Self))]"
+							tagtooltip_enabled = yes
+							text = "INTEL_FOG_TAX_BASE_UNKNOWN"
+						}
+
+						widget = {
+							size = { 24 24 }
+							icon = {
+								size = { 100% 100% }
+								texture = "gfx/interface/icons/location_icons/tax_base.dds"
+							}
+							tooltip = "[tax_base|e]"
+							tagtooltip_enabled = yes
+						}
+					}
+				}
+
+				# religion/population
+				TooltipManualTableField = { #RELIGION - MILITARY?
+					hbox = {
+						spacing = 5
+						datacontext = "[Country.GetReligion]"
+						tooltipwidget = { using = religion_tooltip	}
+
+						widget = {
+							size = { 24 24 }
+							icon = {
+								size = { 100% 100% }
+								texture = "[GetReligionIcon(Country.GetReligion.Self)]"
+							}
+							tooltip = "[primary_religion|e]"
+							tagtooltip_enabled = yes
+						}
+
+						text_single = {
+							autoresize = yes
+							align = right
+							text = "[Country.GetReligion.GetName]"
+						}
+					}
+
+					expand = {}
+
+					hbox = {
+						tooltipwidget = { using = ArmyOverview_tooltip }
+						spacing = 5
+						text_single = {
+							visible = "[HasArmySizeIntelOn(Country.Self)]"
+							autoresize = yes
+							align = right
+							raw_text = "[Country.GetRaisedAndPotentialLevyStrength] @levy! / [Country.GetRegularArmySize|0L] @regular!"
+						}
+						text_single = {
+							visible = "[Not(HasArmySizeIntelOn(Country.Self))]"
+							tagtooltip_enabled = yes
+							text = "INTEL_FOG_ARMY_SIZE_UNKNOWN"
+						}
+
+						icon = {
+							size = { 24 24 }
+							texture = "gfx/interface/icons/flat_icons/declare_war/army_size.dds"
+						}
+					}
+				}
+
+				TooltipManualTableField = { #CULTURE- mil
+					hbox = {
+						spacing = 5
+
+						widget = {
+							size = { 24 24 }
+							icon = {
+								size = { 100% 100% }
+								texture = "gfx/interface/icons/culture/primary_culture.dds"
+							}
+							tooltip = "[primary_culture|e]"
+							tagtooltip_enabled = yes
+						}
+						
+						text_single = {
+							autoresize = yes
+							align = right
+							text = "[Country.GetCulture.GetName]"
+							datacontext = "[Country.GetCulture]"
+							tooltipwidget = {
+								using = culture_tooltip
+							}
+						}
+					}
+
+					expand = {}
+
+					hbox = {
+						tooltipwidget = { using = NavyOverview_tooltip }
+						spacing = 5
+						text_single = {
+							visible = "[HasNavyStrengthIntelOn(Country.Self)]"
+							autoresize = yes
+							align = right
+							text = "[Country.GetTotalNavyStrengthAndPotentialLevies|0L]"
+						}
+						text_single = {
+							visible = "[Not(HasNavyStrengthIntelOn(Country.Self))]"
+							tagtooltip_enabled = yes
+							text = "INTEL_FOG_NAVY_STRENGTH_UNKNOWN"
+						}
+
+						icon = {
+							size = { 24 24 }
+							texture = "gfx/interface/icons/flat_icons/declare_war/navy.dds"
+						}
+					}
+				}
+
+				TooltipManualTableField = { #Subjects
+					visible = "[Country.GetDiplomacy.HasSubjects]"
+					hbox = {
+						spacing = 5
+
+						widget = {
+							size = { 24 24 }
+							icon = {
+								size = { 100% 100% }
+								texture = "gfx/interface/icons/treaty_type/become_subject.dds"
+							}
+							tooltip = "[subjects|e]"
+							tagtooltip_enabled = yes
+						}
+						
+						text_single = {
+							autoresize = yes
+							align = right
+							text = "[subjects|e]"							
+						}
+					}
+
+					expand = {}
+
+					hbox = {
+						tooltipwidget = {
+							using = country_tooltip_subjects
+						}
+						spacing = 5
+						text_single = {
+							autoresize = yes
+							align = right
+							text = "[GetDataModelSize(Country.GetDiplomacy.GetSubjects)|0L]"
+						}
+
+						icon = {
+							size = { 24 24 }
+							texture = "gfx/interface/icons/treaty_type/become_subject.dds"
+						}
+					}
+				}
+
+				TooltipManualTableField = { # Personality and Disposition
+					hbox = {
+						spacing = 5
+						datacontext = "[Country.GetAiPersonality]"
+						tooltipwidget = { using = AiPersonality_tooltip }
+	
+						icon = {
+							size = { 20 20 }
+							texture = "[GetAiPersonalityIcon(AiPersonality.Self)]"
+						}
+						text_single = {
+							autoresize = yes
+							text = "[AiPersonality.GetName|L]"
+						}
+					}
+	
+					expand = {}
+	
+					hbox = {
+						tooltipwidget = { using = AiDisposition_tooltip }
+						visible = "[And3(IsPlayerValid, Not(Country.HasHumanController), Not(Country.IsLocalPlayer))]"
+						spacing = 5
+
+						text_single = {
+							autoresize = yes
+							text = "[Country.GetDispositionToPlayer|L]"
+						}
+
+						icon = {
+							size = { 20 20 }
+							texture = "[GetAiDispositionIcon(Country.Self)]"
+						}
+					}
+
+					hbox = {
+						tooltipwidget = { using = HumanPlayerDisposition_tooltip }
+						visible = "[Country.HasHumanController]"
+						spacing = 5
+
+						icon = {
+							size = { 20 20 }
+							texture = "[GetAiDispositionIcon(Country.Self)]"
+						}
+						icon = {
+							size = { 20 20 }
+							texture = "gfx/interface/icons/outliner/human_player.dds"
+						}
+					}
+				}
+			}
+
+			TooltipTextBlock = {
+				visible = "[And(Not(Country.IsLocalPlayer), Country.GetDiplomacy.IsAtWar)]"
+				blockoverride "text" {
+					text = "COUNTRY_TOOLTIP_IS_AT_WAR"
+				}
+				tooltip_enabled = "[DataModelHasItems(Country.GetDiplomacy.GetCurrentWars)]"
+				tooltipwidget = {
+					using = War_list_tooltip
+					blockoverride "wars_list_datamodel" {
+						datamodel = "[Country.GetDiplomacy.GetCurrentWars]"
+					}
+				}
+			}
+
+			TooltipRowList = {
+				block "general_text_area" {
+					visible = "[And(Not(Country.IsLocalPlayer), Not(StringIsEmpty(Country.GetPlayerDiplomacyInfo)))]"
+					textcontext = "[SelectLocalization(Country.Exists, Country.GetPlayerDiplomacyInfo, Localize('COUNTRY_TOOLTIP_DOES_NOT_EXIST'))]"
+				}
+			}
+
+			# history_entries: 历史介绍；长文在框内滚动，写法同人物模组和原版阶层浮窗
+			TooltipScrolledFlavorTextBlock = {
+				visible = "[Not(StringIsEmpty(Country.Custom('lde_country_desc')))]"
+				blockoverride "block_scrollarea" { maximumsize = { -1 300 } }
+				blockoverride "text" {
+					text = "[Country.Custom('lde_country_desc')]"
+				}
+			}
+		}
+	}
+}
+
+template culture_tooltip { 
+	ContextualTooltipType = {
+		blockoverride "title_icon"{
+			icon = {
+				texture = "gfx/interface/icons/flat_icons/culture/culture.dds"
+				using = tooltip_title_icon_size
+			}
+		}
+		
+		blockoverride "title_text" {
+			text = "[Culture.GetNameWithNoTooltip]"
+		}
+
+		blockoverride "concept_link" {
+			text = [culture|E]
+		}
+
+		blockoverride "description_text" {
+			text = "[Culture.GetTooltip]"
+		}
+
+		blockoverride "script_text" {
+			debug_text = "[Culture.GetDebugText]"
+		}
+		
+		blockoverride "tooltip_content" {
+			TooltipDebugTextBlock = {
+				blockoverride "text" {
+					debug_text = "[Culture.GetDebugText]"
+				}
+			}
+			
+			TooltipDebugTextBlock = {
+				blockoverride "text" {
+					debug_text = "[Culture.GetDebugGraphicalCultures]"
+				}
+			}
+			
+			TooltipDebugTextBlock = {
+				blockoverride "text" {
+					debug_text = "[Culture.GetDebugEthnicities]"
+				}
+			}
+			
+			TooltipContentSection = {
+				using = culture_tooltip_content
+			}
+
+			# history_entries: 历史介绍；长文在框内滚动，写法同人物模组和原版阶层浮窗
+			TooltipScrolledFlavorTextBlock = {
+				visible = "[Not(StringIsEmpty(Culture.Custom('lde_culture_desc')))]"
+				blockoverride "block_scrollarea" { maximumsize = { -1 300 } }
+				blockoverride "text" {
+					text = "[Culture.Custom('lde_culture_desc')]"
+				}
+			}
+		}
+	}
+}
+
+template Dynasty_tooltip {
+	ContextualTooltipType = {
+		blockoverride "title_icon" {
+			dynasty_shield_mid = {
+				blockoverride "show_as_button" { visible = no }
+				blockoverride "show_as_icon" { visible = yes }
+			}
+		}
+
+		blockoverride "title_text" {
+			text = "[Dynasty.GetNameWithNoTooltip|U]"
+		}
+
+		blockoverride "concept_link" {
+			text = [dynasty|E]
+		}
+
+		blockoverride "tooltip_content" {
+			TooltipDebugTextBlock = {
+				blockoverride "text" {
+					debug_text = "[Dynasty.GetDebugText]"
+				}
+			}
+
+			TooltipDynastyHeader = {}
+
+			TooltipTextBlock = {
+				block "striped_explanation_visible" { visible = no }
+				blockoverride "text" {
+					text = "LEGEND_KEY_DYNASTY_STRIPED"
+				}
+			}
+
+			TooltipListBase = {
+				visible = "[And(Dynasty.HasDynastyHead, Not(IsDataModelEmpty(Dynasty.GetCurrentRuledCountries)))]"
+				
+				blockoverride "block_title" {
+					text = "DYNASTY_TT_LIST_COUNTRIES"
+				}
+
+				hbox = {
+					layoutpolicy_horizontal = expanding
+					margin = { 10 10 }
+					hbox = {
+						datamodel = "[DataModelFirst(Dynasty.GetCurrentRuledCountries, '(int32)10')]"
+						item = {
+							country_flag_small = {}
+						}
+					}
+
+					expand = {}
+
+					text_single = {
+						visible = "[GreaterThan_int32(GetDataModelSize(Dynasty.GetCurrentRuledCountries), '(int32)10')]"
+						raw_text = "#L +[GetDataModelSize(Dynasty.GetCurrentRuledCountries)]#!"
+
+						tooltipwidget = {
+							SimpleContextualRowTooltipType = {
+								blockoverride "title_icon" {
+									dynasty_shield_mid = {
+										blockoverride "show_as_button" { visible = no }
+										blockoverride "show_as_icon" { visible = yes }
+									}
+								}
+								blockoverride "title_text" {
+									text = "[Dynasty.GetNameWithNoTooltip|U]"
+								}
+								blockoverride "concept_link" {
+									text = [dynasty|E]
+								}
+								blockoverride "tooltip_content" {
+									TooltipListOfCountries = {
+										blockoverride "datamodel" { datamodel = "[Dynasty.GetCurrentRuledCountries]" }
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			TooltipListBase = {
+				visible = "[Dynasty.HasDynastyHead]"
+				
+				blockoverride "block_title" {
+					text = "DYNASTY_TT_PRESSENCE_LIST_COUNTRIES"
+				}
+
+				hbox = {
+					layoutpolicy_horizontal = expanding
+					margin = { 10 10 }
+					hbox = {
+						datamodel = "[DataModelFirst(Dynasty.GetExistingCountries, '(int32)10')]"
+						item = {
+							country_flag_small = {}
+						}
+					}
+
+					expand = {}
+
+					text_single = {
+						visible = "[GreaterThan_int32(GetDataModelSize(Dynasty.GetExistingCountries), '(int32)10')]"
+						raw_text = "#L +[GetDataModelSize(Dynasty.GetExistingCountries)]#!"
+
+						tooltipwidget = {
+							SimpleContextualRowTooltipType = {
+								blockoverride "title_icon" {
+									dynasty_shield_mid = {
+										blockoverride "show_as_button" { visible = no }
+										blockoverride "show_as_icon" { visible = yes }
+									}
+								}
+								blockoverride "title_text" {
+									text = "[Dynasty.GetNameWithNoTooltip|U]"
+								}
+								blockoverride "concept_link" {
+									text = [dynasty|E]
+								}
+								blockoverride "tooltip_content" {
+									TooltipListOfCountries = {
+										blockoverride "datamodel" { datamodel = "[Dynasty.GetExistingCountries]" }
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+
+			TooltipListBase = {
+				vbox = {
+					layoutpolicy_horizontal = expanding
+					ignoreinvisible = yes
+
+					TooltipManualTableField = {
+						text_single = {
+							layoutpolicy_horizontal = expanding
+							autoresize = no
+							text = "DYNASTY_TT_LIVING_MEMBERS"
+						}
+
+						text_single = {
+							autoresize = yes
+							text = "[GetDataModelSize(Dynasty.GetLivingCharacters)|L]"
+							tooltipwidget = {
+								using = DynastyMembers_Tooltip
+							}
+						}
+					}
+
+					TooltipManualTableField = {
+						text_single = {
+							layoutpolicy_horizontal = expanding
+							autoresize = no
+							text = "[ShowModifier('dynasty_seat')]"
+						}
+
+						text_single = {
+							autoresize = yes
+							text = "[location_icon][Dynasty.GetHome.GetName]"
+						}
+					}
+				}
+			}
+
+			# TooltipFastScrolledStringPairList = {
+			# 	blockoverride "block_scrollarea" { maximumsize = { -1 210 }}
+			# 	ontextcontextchanged = "[SetRowListWithTitleFromTextContext(PdxGuiWidget.AccessSelf)]"
+			# 	textcontext = "[Dynasty.GetRulerHistoryInfo]"
+			# }
+
+			# history_entries: 历史介绍；长文在框内滚动，写法同人物模组和原版阶层浮窗
+			TooltipScrolledFlavorTextBlock = {
+				visible = "[And(Dynasty.HasDynastyHead, Not(StringIsEmpty(Dynasty.GetDynastyHead.Custom('lde_dynasty_desc'))))]"
+				blockoverride "block_scrollarea" { maximumsize = { -1 300 } }
+				blockoverride "text" {
+					text = "[Dynasty.GetDynastyHead.Custom('lde_dynasty_desc')]"
+				}
+			}
+		}
+	}
+}

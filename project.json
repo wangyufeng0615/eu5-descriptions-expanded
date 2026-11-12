@@ -1,0 +1,24 @@
+{
+  "name": "Descriptions Expanded: Countries, Cultures, Dynasties & More",
+  "name_zh": "描述扩展：国家、文化、王朝及更多",
+  "mod_id": "descriptions_expanded",
+  "version": "0.0.0",
+  "game_id": "eu5",
+  "steam_app_id": 3450310,
+  "publishedfileid": null,
+  "steam_api_dll": "C:/Program Files (x86)/Steam/steamapps/common/Europa Universalis V/binaries/steam_api64.dll",
+  "supported_game_version": "1.*",
+  "game_build_checked": null,
+  "short_description": "English and Simplified Chinese descriptions for countries, cultures, dynasties, languages, language families and holy sites, shown in their tooltips.",
+  "tags": [
+    "Historical",
+    "Translation"
+  ],
+  "licenses": {
+    "tools": "MIT",
+    "descriptions": "CC-BY-SA-4.0"
+  },
+  "only_written": false,
+  "vanilla_gui_dir": "in_game/gui/shared",
+  "thumbnail_file": "workshop/assets/thumbnail.png"
+}

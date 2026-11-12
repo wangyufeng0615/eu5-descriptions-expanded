@@ -1,0 +1,20 @@
+{
+  "titles": {
+    "english": "Descriptions Expanded: Countries, Cultures, Dynasties & More",
+    "schinese": "描述扩展：国家、文化、王朝及更多"
+  },
+  "descriptions": {
+    "english": "workshop/description.en.txt",
+    "schinese": "workshop/description.zh-CN.txt"
+  },
+  "cover_images": {
+    "english": "workshop/assets/cover.jpg",
+    "schinese": "workshop/assets/cover.zh-CN.jpg"
+  },
+  "description_images": {},
+  "tags": [
+    "Historical",
+    "Translation"
+  ],
+  "screenshots": []
+}
