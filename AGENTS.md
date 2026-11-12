@@ -45,7 +45,6 @@ python -B tools\build.py --verify dist\<新目录>
 
 ## 发布前还没做
 
-- 工坊截图：`page.json` 的 `screenshots` 还是空的。要进游戏截国家、文化、王朝、圣地浮窗各一张（中英文），存到 `workshop/screenshots/`，每张小于 1 MB，登记进 `page.json`。
 - 成就兼容：模组加了 `in_game/common` 下的可定制本地化，和人物模组同一种做法；2026-11-12 测试时主菜单校验码随模组内容变化。人物模组页面写了兼容成就，本模组页面暂未写，等作者确认。
 - 作者确认工坊文案（`workshop/description.*.txt`），尤其“关于 AI 的使用”一段要不要像人物模组那样写明用了哪些模型。
 

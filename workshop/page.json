@@ -16,5 +16,41 @@
     "Historical",
     "Translation"
   ],
-  "screenshots": []
+  "screenshots": [
+    {
+      "file": "workshop/screenshots/england.en.jpg",
+      "language": "english",
+      "caption": "The Kingdom of England: a country description"
+    },
+    {
+      "file": "workshop/screenshots/english-culture.en.jpg",
+      "language": "english",
+      "caption": "The English: a culture description"
+    },
+    {
+      "file": "workshop/screenshots/plantagenet.en.jpg",
+      "language": "english",
+      "caption": "The Plantagenets, shown through the dynasty head"
+    },
+    {
+      "file": "workshop/screenshots/england.zh-CN.jpg",
+      "language": "schinese",
+      "caption": "英格兰王国的国家介绍"
+    },
+    {
+      "file": "workshop/screenshots/english-culture.zh-CN.jpg",
+      "language": "schinese",
+      "caption": "英格兰人的文化介绍"
+    },
+    {
+      "file": "workshop/screenshots/plantagenet.zh-CN.jpg",
+      "language": "schinese",
+      "caption": "金雀花王朝，经宗族领袖显示"
+    },
+    {
+      "file": "workshop/screenshots/kadhimiya-shrine.zh-CN.jpg",
+      "language": "schinese",
+      "caption": "巴格达卡济米耶圣陵的圣地介绍"
+    }
+  ]
 }
