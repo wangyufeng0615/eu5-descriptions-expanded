@@ -11,7 +11,10 @@
     "english": "workshop/assets/cover.jpg",
     "schinese": "workshop/assets/cover.zh-CN.jpg"
   },
-  "description_images": {},
+  "description_images": {
+    "english": "workshop/assets/coverage-20261112/coverage.en.png",
+    "schinese": "workshop/assets/coverage-20261112/coverage.zh-CN.png"
+  },
   "tags": [
     "Historical",
     "Translation"

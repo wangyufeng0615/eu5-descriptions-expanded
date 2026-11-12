@@ -39,14 +39,17 @@ python -B tools\build.py --verify dist\<新目录>
 
 1. **更新数据**：研究工程评审流程跑完后 `tools/sync_workshop.sh`，进游戏看几个国家、文化、王朝、圣地的浮窗（中英文各看）。
 2. **准备版本**：`python -B tools\release.py <版本> --note "..." --install --commit`。升版本号、写 `CHANGELOG.md`、跑测试和检查、构建到 `dist\release-<版本>\`、核对、装进游戏并提交；失败会改回去。`project.json` 初始版本是 0.0.0，第一次发布就是 `release.py 0.1.0 --note "First release." --install --commit`。
-3. **第一次上传**：作者确认后，在登录了 Steam 的桌面会话里 `python -B tools\steam_create.py 0.1.0 --notes-file workshop\changenotes.en.txt --output dist\create-0.1.0.json`（建私密条目，Steam 返回编号就写进 `project.json`），再 `steam_page.py --descriptions` 补中文标题和描述、`--assets` 补中文封面和截图。都用计划任务放进桌面会话（`schtasks /create ... /ru <用户名> /it` 再 `/run`，跑完删任务）。改公开由作者在网页上做。
+3. **第一次上传**：作者确认后，在登录了 Steam 的桌面会话里依次运行（都用计划任务放进桌面会话：`schtasks /create ... /ru <用户名> /it` 再 `/run`，跑完删任务）：
+   1. `python -B tools\steam_create.py 0.1.0 --notes-file workshop\changenotes.en.txt --output dist\create-0.1.0.json`：建私密条目，Steam 返回编号就写进 `project.json`。
+   2. `python -B tools\steam_page.py --host-images --output dist\host-images.json`：把覆盖表图（`workshop/assets/coverage-20261112/`，`render.py` 在 Windows 上生成）存进 Steam 云并公开分享，网址记进 `page.json` 的 `description_image_urls`。托管要求条目已存在，所以放在建条目之后。
+   3. 把两张图的网址各写成一行 `[img]<网址>[/img]`，插在 `description.*.txt` 的标题下面，再 `steam_page.py --descriptions` 推中英文标题和描述，`--assets` 补中文封面和截图。
+   改公开由作者在网页上做。
 4. **之后的更新**：`release.py <新版本>`，再 `steam_upload.py <版本> --upload --notes-file workshop\changenotes.en.txt --output dist\upload-<版本>.json`；中文更新说明的补法见人物模组发布工程 `AGENTS.md`「发布」第 5 步。
 5. **更新说明**：`workshop/changenotes.*.txt` 第一行写版本号，`description.*.txt` 的「更新记录」加一行。
 
 ## 发布前还没做
 
-- 成就兼容：模组加了 `in_game/common` 下的可定制本地化，和人物模组同一种做法；2026-11-12 测试时主菜单校验码随模组内容变化。人物模组页面写了兼容成就，本模组页面暂未写，等作者确认。
-- 作者确认工坊文案（`workshop/description.*.txt`），尤其“关于 AI 的使用”一段要不要像人物模组那样写明用了哪些模型。
+- 2026-11-12 用户定：工坊文案照地块模组的写法，大幅简化，只讲补了哪些对象、各多少（覆盖表图）；兼容铁人和成就照人物模组写；AI 一段照地块模组，不点名模型。
 
 ## 文件
 

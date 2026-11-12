@@ -1,48 +1,26 @@
-[h1]A description for every country, culture, dynasty and more[/h1]
+[h1]Descriptions for countries, cultures, dynasties and more[/h1]
 
-Hover over a country, a culture or a dynasty in vanilla EU5 and you get numbers, but no story. Languages and holy sites have a place for a description, yet almost all of them are empty.
+Vanilla EU5 describes only 22 of these.
 
-This mod adds English and Chinese descriptions to [b]5,286[/b] of them, shown at the bottom of the tooltip:
+This mod adds descriptions to [b]5,286[/b] of them: every country with land in 1337, every culture, every dynasty alive in 1337, and every language, language family and holy site. Hover over one to read it at the bottom of the tooltip.
+
 [list]
-[*][b]1,566[/b] countries: every country with land at the 1337 start
-[*][b]2,086[/b] cultures
-[*][b]793[/b] dynasties: every dynasty with a living member in 1337
-[*][b]528[/b] languages, 56 language families and 257 holy sites
-[/list]
-
-Each description tells where the people or the state came from, what they are remembered for, and what became of them up to 1837, the end of the game. Sources were gathered mainly from Wikipedia in English and other languages and matched to the game's object by capital, territory, rulers and members. Where little is known, the description stays short; nothing is made up.
-
-All descriptions were written with AI assistance and then checked: automated review of every entry for wrong subjects and mismatches between English and Chinese, a fact check of the largest countries, cultures and dynasties against their sources, and in-game testing.
-
-This will be the home for all my future descriptions. Religions, culture groups and more will be added here as updates, not as new mods.
-
-[h2]Some interesting entries[/h2]
-[list]
-[*][b]Iceland[/b]: in 930 its chieftains founded the Althing, one of the oldest parliaments in the world
-[*][b]Yamato[/b]: the imperial house of Japan, the oldest continuous hereditary monarchy
-[*][b]Guanche[/b]: the people of the Canary Islands lived in stone-age isolation, believed a demon lived atop Mount Teide, and on Tenerife mummified their dead in caves
-[*][b]Ainu[/b]: the -betsu at the end of many river names in northern Japan comes from the Ainu word for river
-[*][b]Ragusa[/b]: in 1333 the republic bought the Pelješac peninsula and Ston, with its salt pans, from Stefan Dušan
-[*]And Venice, the Teutonic Order, the Borjigin, Basque, the Kaaba…
-[/list]
-
-[h2]Features[/h2]
-[list]
-[*]English + Chinese
-[*]Only adds text; no effect on game rules
+[*]Supports English and Chinese
+[*]Keeps EU5's flavour
 [*]Can be added to an existing save
-[*]Works alongside my character and tile description mods
+[*]Ironman and achievement compatible
+[*]Works together with my character and tile description mods
 [/list]
 
-Dynasties show their description through the dynasty head, so a dynasty with no living member shows none.
+Every description is based on sources, mainly Wikipedia in English and local languages, and went through several rounds of checking. I used the best models available and went through a huge number of tokens. But for this mod, I think it was worth it :)
 
-If you find a mistake, please leave a comment. I'll keep maintaining and updating this mod!
+All my future descriptions will go into this mod. Religions, culture groups and more will be added as updates. If you find a mistake, please leave a comment. I'll keep maintaining and updating this mod!
 
 [h2]My other mods[/h2]
 [list]
 [*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=3830305546][b]Descriptions for Every Tile[/b][/url] (Europa Universalis V): descriptions for all 28,316 tiles on the EU5 map.
 [*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=3833397845][b]Descriptions for Every Historical Character[/b][/url] (Europa Universalis V): biographies for 7,789 historical characters.
-[*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=3833082096][b]Descriptions for Every Province[/b][/url] (Europa Universalis IV): descriptions for all 3,272 land provinces.
+[*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=3833082096][b]Descriptions for Every Province and Great Project[/b][/url] (Europa Universalis IV): descriptions for all 3,272 land provinces and 139 great projects.
 [/list]
 
 [h2]Update history[/h2]
