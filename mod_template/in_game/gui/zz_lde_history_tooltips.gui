@@ -681,7 +681,7 @@ template language_tooltip_content {
 	
 	TooltipScrolledContentSection = {  # history_entries: 限高可滚动，原为直接的 TooltipTextBlock
 		blockoverride "block_scrollarea" { maximumsize = { -1 120 } }
-			TooltipTextBlock = {
+		TooltipTextBlock = {
 			blockoverride "text" {
 				text = "[Language.GetDialectsInfo]"
 			}
@@ -690,7 +690,7 @@ template language_tooltip_content {
 	
 	TooltipScrolledContentSection = {  # history_entries: 限高可滚动，原为直接的 TooltipTextBlock
 		blockoverride "block_scrollarea" { maximumsize = { -1 120 } }
-			TooltipTextBlock = {
+		TooltipTextBlock = {
 			blockoverride "text" {
 				text = "[Language.GetCulturesInfo]"
 			}
@@ -699,7 +699,7 @@ template language_tooltip_content {
 	
 	TooltipScrolledContentSection = {  # history_entries: 限高可滚动，原为直接的 TooltipTextBlock
 		blockoverride "block_scrollarea" { maximumsize = { -1 160 } }
-			TooltipTextBlock = {
+		TooltipTextBlock = {
 			blockoverride "text" {
 				text = "[Language.GetReligionsInfo]"
 			}
