@@ -1,4 +1,4 @@
-﻿# 由研究工程 tools/export_workshop.py 生成：原版三个浮窗模板加上历史介绍一块（游戏 1.4.7）
+﻿# 由研究工程 tools/export_workshop.py 生成：原版国家、文化、王朝浮窗加上历史介绍一块，其他显示描述的原版浮窗把说明块改成可滚动（游戏 1.4.7）
 
 template CountryTooltip {
 	ContextualTooltipType = {
@@ -415,7 +415,7 @@ template CountryTooltip {
 			# history_entries: 历史介绍；长文在框内滚动，写法同人物模组和原版阶层浮窗
 			TooltipScrolledFlavorTextBlock = {
 				visible = "[Not(StringIsEmpty(Country.Custom('lde_country_desc')))]"
-				blockoverride "block_scrollarea" { maximumsize = { -1 300 } }
+				blockoverride "block_scrollarea" { maximumsize = { -1 450 } }
 				blockoverride "text" {
 					text = "[Country.Custom('lde_country_desc')]"
 				}
@@ -475,7 +475,7 @@ template culture_tooltip {
 			# history_entries: 历史介绍；长文在框内滚动，写法同人物模组和原版阶层浮窗
 			TooltipScrolledFlavorTextBlock = {
 				visible = "[Not(StringIsEmpty(Culture.Custom('lde_culture_desc')))]"
-				blockoverride "block_scrollarea" { maximumsize = { -1 300 } }
+				blockoverride "block_scrollarea" { maximumsize = { -1 450 } }
 				blockoverride "text" {
 					text = "[Culture.Custom('lde_culture_desc')]"
 				}
@@ -657,9 +657,786 @@ template Dynasty_tooltip {
 			# history_entries: 历史介绍；长文在框内滚动，写法同人物模组和原版阶层浮窗
 			TooltipScrolledFlavorTextBlock = {
 				visible = "[And(Dynasty.HasDynastyHead, Not(StringIsEmpty(Dynasty.GetDynastyHead.Custom('lde_dynasty_desc'))))]"
-				blockoverride "block_scrollarea" { maximumsize = { -1 300 } }
+				blockoverride "block_scrollarea" { maximumsize = { -1 450 } }
 				blockoverride "text" {
 					text = "[Dynasty.GetDynastyHead.Custom('lde_dynasty_desc')]"
+				}
+			}
+		}
+	}
+}
+
+template language_tooltip_content {
+	TooltipDebugTextBlock = {
+		blockoverride "text" {
+			debug_text = "[Language.GetDebugText]"
+		}
+	}
+
+	block "language_tooltip_top_content" {}
+
+	TooltipStringPairList = {
+		datacontext = "[StringToStringPairList(Language.GetTooltip)]"
+	}
+	
+	TooltipTextBlock = {
+		blockoverride "text" {
+			text = "[Language.GetDialectsInfo]"
+		}
+	}
+	
+	TooltipTextBlock = {
+		blockoverride "text" {
+			text = "[Language.GetCulturesInfo]"
+		}
+	}
+	
+	TooltipTextBlock = {
+		blockoverride "text" {
+			text = "[Language.GetReligionsInfo]"
+		}
+	}
+
+	block "function_tooltip" {
+		TooltipScrolledStringPairList = {
+			blockoverride "block_scrollarea" { maximumsize = { -1 200 }}
+			blockoverride "block_title" {
+				text = "COURT_LANGUAGE_TT_TITLE"
+			}
+			textcontext = "[Language.GetCourtLanguagesInfo]"
+			ontextcontextchanged = "[SetStringPairListFromTextContext(PdxGuiWidget.AccessSelf)]"	
+		}
+	}
+	
+	
+	TooltipTextBlock = {
+		blockoverride "text" {
+			text = "[Language.GetMarketsInfo]"
+		}
+	}
+	
+	TooltipScrolledFlavorTextBlock = {  # history_entries: 原为不可滚动的说明块
+		blockoverride "block_scrollarea" { maximumsize = { -1 400 } }
+		visible = "[Not(StringIsEmpty(Language.GetFlavorText))]"
+		blockoverride "text" {
+			text = "[Language.GetFlavorText]"
+		}
+	}
+}
+
+template language_family_tooltip {
+	ContextualTooltipType = {
+		blockoverride "title_text" {
+			text = "[LanguageFamily.GetNameWithNoTooltip]"
+		}
+
+
+
+		blockoverride "title_icon" {
+			icon = {
+				using = tooltip_title_icon_size
+				texture = "gfx/interface/icons/flat_icons/common_language.dds"
+			}
+		}
+
+		blockoverride "concept_link" {
+			text = [language_family|E]
+		}
+
+		
+		blockoverride "tooltip_content" {
+			TooltipDebugTextBlock = {
+				blockoverride "text" {
+					debug_text = "[LanguageFamily.GetDebugText]"
+				}
+			}
+
+			TooltipScrolledContentSection = {
+				blockoverride "block_scrollarea" { maximumsize = { -1 600 }}
+				blockoverride "section_content"	{
+					TooltipRowList = {
+						blockoverride "block_title" {
+							text = "LANGUAGE_FAMILY_TT_LANGUAGES_TITLE"
+						}
+						textcontext = "[LanguageFamily.GetLanguagesList]"
+					}
+				}
+			}
+		
+			TooltipScrolledFlavorTextBlock = {  # history_entries: 原为不可滚动的说明块
+				blockoverride "block_scrollarea" { maximumsize = { -1 400 } }
+				visible = "[LanguageFamily.HasDesc]"
+				blockoverride "text" {
+					text = "[LanguageFamily.GetDesc]"
+				}
+			}
+		}
+	}
+}
+
+template culture_group_tooltip {
+	ContextualTooltipType = {
+		blockoverride "title_text" {
+			text = "[CultureGroup.GetNameWithNoTooltip]"
+		}
+
+		blockoverride "title_icon"	{
+			icon = {
+				using = tooltip_title_icon_size
+				texture = "gfx/interface/icons/map_modes/culture_group.dds"
+			}
+		}
+
+		blockoverride "concept_link" {
+			text = [culture_group|E]
+		}
+		blockoverride "tooltip_content" {
+			TooltipDebugTextBlock = {
+				blockoverride "text" {
+					debug_text = "[CultureGroup.GetDebugText]"
+				}
+			}
+
+			TooltipTextBlock = {
+				blockoverride "text" {
+					text = "[CultureGroup.GetTooltip]"
+				}
+			}
+			
+			TooltipStringPairList = {
+				visible = "[CultureGroup.HasEffects]"
+				textcontext = "[CultureGroup.GetEffects]"
+			}
+		
+			TooltipTextBlock = {
+				visible = "[CultureGroup.GetIsMerged]"
+				blockoverride "text" {
+					text = "[CultureGroup.GetMergedCultureTooltip]"
+				}
+			}
+
+			vbox = {
+				layoutpolicy_horizontal = expanding
+				margin = { 0 5 }
+				visible = "[DataModelHasItems(CultureGroup.GetCulturesPieChart.GetContributions)]"
+
+				icon_pie = {
+					blockoverride "PieSize" { size = { 120 120 } }
+
+					blockoverride "pie_datamodel" {
+						datamodel = "[CultureGroup.GetCulturesPieChart.GetContributions]"
+					}
+
+					blockoverride "SliceTooltip" {
+						tooltip = "[PopsByCultureContribution.GetName]"
+						tooltipwidget = {
+							visible = "[Not(PopsByCultureContribution.IsOther)]"
+							datacontext = "[PopsByCultureContribution.GetCulture]"
+							using = culture_tooltip
+						}
+					}
+					blockoverride "SliceValue"   { value = "[PopsByCultureContribution.GetPercentage]" }
+					blockoverride "SliceColor"   { color = "[PopsByCultureContribution.GetColor]" }
+
+					blockoverride "Icon" {
+						texture = "gfx/interface/icons/map_modes/culture_group.dds"
+						modify_texture = {
+							using = color_gold_texture
+							texture_density = 2
+							blend_mode = alphamultiply
+							alpha = 1
+						}
+					}
+
+					blockoverride "datamodel" {
+						datamodel = "[CultureGroup.GetCulturesPieChart.GetAllContributions]"
+					}
+					blockoverride "color"          { color = "[PopsByCultureContribution.GetColor]" }
+					blockoverride "leftside_info"  {
+						datacontext = "[PopsByCultureContribution.GetCulture]"
+						text = "[PopsByCultureContribution.GetName]"
+						filter_mouse = all
+						tooltipwidget = {
+							using = culture_tooltip
+						}
+					}
+					blockoverride "rightside_info" {
+						raw_text = "[PopsByCultureContribution.GetPercentage|%1] ([PopsByCultureContribution.GetDisplayValue]@population!)"
+					}
+				}
+			}
+
+			TooltipScrolledFlavorTextBlock = {  # history_entries: 原为不可滚动的说明块
+				blockoverride "block_scrollarea" { maximumsize = { -1 400 } }
+				blockoverride "text" {
+					text = "[CultureGroup.GetDesc]"
+				}
+			}
+		}
+		blockoverride "tooltip_ui_action_block" {
+			
+		}
+	}
+}
+
+template religion_tooltip {
+	ContextualTooltipType = {
+		blockoverride "title_icon_texture" {
+			texture = "[GetReligionIcon(Religion.Self)]"
+		}
+
+		blockoverride "title_text" {
+			text = "[Religion.GetNameWithNoTooltip]"
+		}
+
+		blockoverride "concept_link" {
+			text = [religion|E]
+		}
+		
+		blockoverride "tooltip_content" {
+			TooltipDebugTextBlock = {
+				blockoverride "text" {
+					debug_text = "[Religion.GetDebugText]"
+				}
+			}
+
+			TooltipScrolledBlockList = {
+				blockoverride "block_scrollarea" { maximumsize = { -1 450 } }
+				textcontext = "[Religion.GetTooltip]"
+			}
+		
+			TooltipTextBlock = {
+				blockoverride "text" {
+					datacontext = "[Religion]"
+					text = "RELIGION_TOTAL_WORSHIPPERS"
+				}
+			}
+
+			vbox = {
+				layoutpolicy_horizontal = expanding
+				margin = { 0 5 }
+				visible = "[DataModelHasItems(Religion.GetCountriesList.GetContributions)]"
+
+				icon_pie = {
+					blockoverride "PieSize" { size = { 120 120 } }
+
+					blockoverride "pie_datamodel" {
+						datamodel = "[Religion.GetCountriesList.GetContributions]"
+					}
+
+					blockoverride "SliceTooltip" {
+						tooltip = "[PopsByCountryContribution.GetName]"
+						tooltipwidget = {
+							visible = "[Not(PopsByCountryContribution.IsOther)]"
+							datacontext = "[PopsByCountryContribution.GetCountry]"
+							using = CountryTooltip
+						}
+					}
+					blockoverride "SliceValue"   { value = "[PopsByCountryContribution.GetPercentage]" }
+					blockoverride "SliceColor"   { color = "[PopsByCountryContribution.GetColor]" }
+
+					blockoverride "Icon" {
+						texture = "gfx/interface/icons/flat_icons/country.dds"
+						modify_texture = {
+							using = color_gold_texture
+							texture_density = 2
+							blend_mode = alphamultiply
+							alpha = 1
+						}
+					}
+
+					blockoverride "datamodel" {
+						datamodel = "[Religion.GetCountriesList.GetAllContributions]"
+					}
+					blockoverride "color"          { color = "[PopsByCountryContribution.GetColor]" }
+					blockoverride "leftside_info"  {
+						datacontext = "[PopsByCountryContribution.GetCountry]"
+						text = "[PopsByCountryContribution.GetName]"
+						filter_mouse = all
+						tooltipwidget = {
+							using = CountryTooltip
+						}
+					}
+					blockoverride "rightside_info" {
+						raw_text = "[PopsByCountryContribution.GetPercentage|%1] ([PopsByCountryContribution.GetDisplayValue]@population!)"
+					}
+				}
+			}
+
+			TooltipScrolledFlavorTextBlock = {  # history_entries: 原为不可滚动的说明块
+				blockoverride "block_scrollarea" { maximumsize = { -1 400 } }
+				blockoverride "text" {
+					text = "[Religion.GetFlavorText]"
+				}
+			}
+		}
+	}
+}
+
+template ReligiousAspect_tooltip {
+	ContextualTooltipType = {
+		blockoverride "title_text" {
+			text = "[ReligiousAspect.GetNameWithNoTooltip]"
+		}
+		
+		blockoverride "title_icon" {
+			icon = {
+				using = tooltip_title_icon_size
+				texture = "[GetReligiousAspectIcon(ReligiousAspect.Self)]"
+			}
+		}
+		
+		blockoverride "concept_link" {
+			text = [religious_aspect|E]
+		}
+		
+		blockoverride "tooltip_content" {
+			TooltipDebugTextBlock = {
+				blockoverride "text" {
+					debug_text = "[ReligiousAspect.GetDebugText]"
+				}
+			}
+			TooltipStringPairList = {
+				textcontext = "[ReligiousAspect.GetEffect]"
+			}
+			TooltipScrolledFlavorTextBlock = {  # history_entries: 原为不可滚动的说明块
+				blockoverride "block_scrollarea" { maximumsize = { -1 400 } }
+				blockoverride "text" {
+					text = "[ReligiousAspect.GetDescription]"
+				}
+			}
+		}
+	}
+}
+
+template God_tooltip {
+	ContextualTooltipType = {
+		blockoverride "title_text" {
+			text = "[God.GetNameWithNoTooltip]"
+		}
+		
+		blockoverride "title_icon" {
+			icon = {
+				using = tooltip_title_icon_size
+				texture = "[GetGodIcon(God.Self)]"
+			}
+		}
+
+		blockoverride "concept_link" {
+			text = "[God.GetGodOrGoddess]"
+		}
+		blockoverride "tooltip_content" {
+			TooltipDebugTextBlock = {
+				blockoverride "text" {
+					debug_text = "[God.GetDebugText]"
+				}
+			}
+
+			TooltipTextBlock = {
+				visible = "[And(God.HasMonarchPower, HasDlc('d008_fate_of_the_phoenix'))]"
+				blockoverride "text" {
+					text = "[God.GetMonarchPowerTooltip]"
+				}
+			}
+
+			TooltipListBase = {
+				visible = "[And(God.HasOmens, HasDlc('d008_fate_of_the_phoenix'))]"
+				blockoverride "block_title" {
+					text = "god_omens_desc"
+				}
+
+				TooltipScrolledContentSection = {
+					blockoverride "block_scrollarea" {
+						maximumsize = { -1 310 }
+					}
+					blockoverride "section_content" {
+						vbox = {
+							layoutpolicy_horizontal = expanding
+							set_parent_dimension_to_minimum = height
+
+							fixedgridbox = {
+								addcolumn = 100%
+								addrow = 30
+								datamodel = "[God.GetOmens]"
+								item = {
+									widget = {
+										size = { 100% 30 }
+										background = {
+											visible = "[IsOdd_int32(PdxGuiWidget.GetIndexInDataModel)]"
+											using = tooltip_table_field_texture
+										}
+
+										hbox = {
+											using = layoutpolicy_expanding
+											margin = { 10 0 }
+											spacing = 5
+											icon = {
+												size = { 20 20 }
+												texture = "[GetOmenIcon(Omen.Self)]"
+											}
+											text_single = {
+												layoutpolicy_horizontal = expanding
+												autoresize = no
+												align = left
+												text = "[Omen.GetName]"
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+
+			TooltipStringPairList = {
+				visible = "[Not(StringIsEmpty(God.GetActiveEffects))]"
+				textcontext = "[God.GetActiveEffects]"
+			}
+
+			TooltipStringPairList = {
+				visible = "[God.HasInactiveConditionalEffects]"
+				textcontext = "[God.GetInactiveConditionalEffects]"
+			}
+			TooltipScrolledFlavorTextBlock = {  # history_entries: 原为不可滚动的说明块
+				blockoverride "block_scrollarea" { maximumsize = { -1 400 } }
+				blockoverride "text" {
+					text = "[God.GetDesc]"
+				}
+			}
+		}
+	}
+}
+
+template GodWithReligion_tooltip {
+	ContextualTooltipType = {
+		blockoverride "title_text" {
+			text = "[GodWithReligionWrap.GetName]"
+		}
+
+		blockoverride "title_icon" {
+			icon = {
+				using = tooltip_title_icon_size
+				texture = "[GetGodIcon(GodWithReligionWrap.GetGod)]"
+			}
+		}
+
+		blockoverride "concept_link" {
+			text = [god|E]
+		}
+		
+		blockoverride "tooltip_content" {
+			TooltipDebugTextBlock = {
+				blockoverride "text" {
+					debug_text = "[GodWithReligionWrap.GetGod.GetDebugText]"
+				}
+			}
+			TooltipStringPairList = {
+				textcontext = "[GodWithReligionWrap.GetGod.GetActiveEffects]"
+			}
+			TooltipStringPairList = {
+				visible = "[GodWithReligionWrap.GetGod.HasInactiveConditionalEffects]"
+				textcontext = "[GodWithReligionWrap.GetGod.GetInactiveConditionalEffects]"
+			}
+			TooltipScrolledFlavorTextBlock = {  # history_entries: 原为不可滚动的说明块
+				blockoverride "block_scrollarea" { maximumsize = { -1 400 } }
+				blockoverride "text" {
+					text = "[GodWithReligionWrap.GetGod.GetDesc]"
+				}
+			}
+		}
+ 	}
+}
+
+template HolySite_tooltip_content {
+	TooltipListBase = {
+		visible = "[HolySite.GetLocation.IsPossibleToOwn]"
+		ignoreinvisible = yes
+		TooltipManualTableField = {
+			hbox = {
+				margin = { 5 0 }
+
+				text_single = {
+					autoresize = yes
+					align = right
+					text = "LOCATION_OWNER_TT"
+				}
+			}
+			
+			expand = {}
+			
+			hbox = {
+				margin = { 5 0 }
+				spacing = 5
+
+				country_flag_mini = {
+					datacontext = "[HolySite.GetLocation.GetOwner]"
+				}
+
+				text_single = {
+					autoresize = yes
+					align = right
+					raw_text = "[HolySite.GetLocation.GetOwner.GetLongName]"
+				}
+			}
+		}
+	}
+	
+	TooltipStringPairList = {
+		textcontext = "[HolySite.GetTooltip]"
+	}
+	
+	TooltipStringPairList = {
+		visible = "[HolySite.HasReligionModifiers]"
+		textcontext = "[HolySite.GetReligionModifierInfo]"
+	}
+	TooltipStringPairList = {
+		visible = "[HolySite.HasCountryModifiers]"
+		textcontext = "[HolySite.GetCountryModifierInfo]"
+	}
+	TooltipStringPairList = {
+		visible = "[HolySite.HasLocationModifiers]"
+		textcontext = "[HolySite.GetLocationModifierInfo]"
+	}
+	
+	TooltipScrolledFlavorTextBlock = {  # history_entries: 原为不可滚动的说明块
+		blockoverride "block_scrollarea" { maximumsize = { -1 400 } }
+		visible = "[HolySite.HasDesc]"
+		blockoverride "text" {
+			text = "[HolySite.GetDesc]"
+		}
+	}
+
+}
+
+template religion_group_tooltip {
+	ContextualTooltipType = {
+		blockoverride "title_text" {
+			text = "[ReligionGroup.GetNameWithNoTooltip]"
+		}
+		
+		blockoverride "title_icon" {
+			icon = {
+				visible = "[Not(EqualTo_string(ReligionGroup.GetNameWithNoTooltip, 'Christianity'))]"
+				using = tooltip_title_icon_size
+				texture = "gfx/interface/icons/location_icons/main_religion.dds"
+			}
+			icon = {
+				visible = "[EqualTo_string(ReligionGroup.GetNameWithNoTooltip, 'Christianity')]"
+				using = tooltip_title_icon_size
+				texture = "gfx/interface/icons/international_organizations/christianity.dds"
+			}
+		}
+
+		blockoverride "concept_link" {
+			text = [religion_group|E]
+		}
+		blockoverride "tooltip_content" {
+			TooltipDebugTextBlock = {
+				blockoverride "text" {
+					debug_text = "[ReligionGroup.GetDebugText]"
+				}
+			}
+
+			TooltipScrolledStringPairList = {
+				blockoverride "block_scrollarea" { maximumsize = { -1 225 } }
+				textcontext = "[ReligionGroup.GetActiveReligions]"
+			}
+			TooltipScrolledStringPairList = {
+				blockoverride "block_scrollarea" { maximumsize = { -1 225 } }
+				textcontext = "[ReligionGroup.GetInactiveReligions]"
+			}
+
+			vbox = {
+				layoutpolicy_horizontal = expanding
+				margin = { 0 5 }
+				visible = "[DataModelHasItems(ReligionGroup.GetReligionsPieChart.GetContributions)]"
+
+				icon_pie = {
+					blockoverride "PieSize" { size = { 120 120 } }
+
+					blockoverride "pie_datamodel" {
+						datamodel = "[ReligionGroup.GetReligionsPieChart.GetContributions]"
+					}
+
+					blockoverride "SliceTooltip" {
+						tooltip = "[PopsByReligionContribution.GetName]"
+						tooltipwidget = {
+							visible = "[Not(PopsByReligionContribution.IsOther)]"
+							datacontext = "[PopsByReligionContribution.GetReligion]"
+							using = religion_tooltip
+						}
+					}
+					blockoverride "SliceValue"   { value = "[PopsByReligionContribution.GetPercentage]" }
+					blockoverride "SliceColor"   { color = "[PopsByReligionContribution.GetColor]" }
+
+					blockoverride "Icon" {
+						texture = "gfx/interface/icons/location_icons/main_religion.dds"
+						modify_texture = {
+							using = color_gold_texture
+							texture_density = 2
+							blend_mode = alphamultiply
+							alpha = 1
+						}
+					}
+
+					blockoverride "datamodel" {
+						datamodel = "[ReligionGroup.GetReligionsPieChart.GetAllContributions]"
+					}
+					blockoverride "color"          { color = "[PopsByReligionContribution.GetColor]" }
+					blockoverride "leftside_info"  {
+						datacontext = "[PopsByReligionContribution.GetReligion]"
+						text = "[PopsByReligionContribution.GetName]"
+						filter_mouse = all
+						tooltipwidget = {
+							using = religion_tooltip
+						}
+					}
+					blockoverride "rightside_info" {
+						raw_text = "[PopsByReligionContribution.GetPercentage|%1] ([PopsByReligionContribution.GetDisplayValue]@population!)"
+					}
+				}
+			}
+
+			TooltipScrolledFlavorTextBlock = {  # history_entries: 原为不可滚动的说明块
+				blockoverride "block_scrollarea" { maximumsize = { -1 400 } }
+				blockoverride "text" {
+					text = "[ReligionGroup.GetDesc]"
+				}
+			}
+		}
+	}
+}
+
+template ReligiousSchool_tooltip {
+	ContextualTooltipType = {
+		blockoverride "title_icon" {
+			icon = {
+				using = tooltip_title_icon_size
+				texture = "[ReligiousSchool.GetIcon]"
+
+				glow = {
+					name = "drop_shadow"
+					glow_radius = 3
+					color = {0.0 0.0 0.0 1.0}
+					alpha = 0.3
+				}
+			}
+		}
+
+		blockoverride "title_text" {
+			text = "[ReligiousSchool.GetNameWithNoTooltip]"
+		}
+
+		blockoverride "concept_link" {
+			text = "[religious_school|E]"
+		}
+
+		blockoverride "tooltip_content" {
+			TooltipScrolledStringPairList = {
+				blockoverride "block_scrollarea" { maximumsize = { -1 300 } minimumsize = { -1 30 } }
+				blockoverride "block_title" {
+					text = "RELIGIOUS_SCHOOL_TT_CURRENT_TEXT"
+				}
+				textcontext = "[ReligiousSchool.GetEffect]"
+			}
+			TooltipScrolledStringPairList = {
+				blockoverride "block_scrollarea" { maximumsize = { -1 300 } minimumsize = { -1 30 } }
+				visible = "[Not(StringIsEmpty(ReligiousSchool.GetRelations))]"
+				textcontext = "[ReligiousSchool.GetRelations]"
+			}
+			TooltipScrolledFlavorTextBlock = {  # history_entries: 原为不可滚动的说明块
+				blockoverride "block_scrollarea" { maximumsize = { -1 400 } }
+				blockoverride "text" {
+					text = "[ReligiousSchool.GetDescription]"
+				}
+			}
+		}
+	}
+}
+
+template ChivalricOrder_tooltip {
+	ContextualTooltipType = {
+		blockoverride "title_text" {
+			text = "[ChivalricOrder.GetNameWithNoTooltip]"
+		}
+
+		blockoverride "concept_link" {
+			text = "[chivalric_order|e]"
+		}
+
+		blockoverride "title_icon" {
+			icon = {
+				using = tooltip_title_icon_size
+				texture = "[GetChivalricOrderIcon(ChivalricOrder.Self)]"
+			}
+		}
+
+		blockoverride "tooltip_content" {
+			TooltipRowList = {
+				blockoverride "block_title" {
+					text = "CHIVALRIC_ORDER_COUNTRY_MODIFIERS_TITLE"
+				}
+				ontextcontextchanged = "[SetRowListFromTextContext(PdxGuiWidget.AccessSelf)]"
+				textcontext = "[ChivalricOrder.GetCountryModifierText]"
+			}
+
+			TooltipRowList = {
+				blockoverride "block_title" {
+					text = "CHIVALRIC_ORDER_CHARACTER_MODIFIERS_TITLE"
+				}
+				ontextcontextchanged = "[SetRowListFromTextContext(PdxGuiWidget.AccessSelf)]"
+				textcontext = "[ChivalricOrder.GetCharacterModifierText]"
+			}
+
+			TooltipListBase = {
+				datacontext = "[GetQuickChivalricOrderMembers(ChivalricOrder.Self)]"
+
+				blockoverride "block_title" {
+					text = "CHIVALRIC_ORDER_MEMBERS_TITLE"
+				}
+
+				TooltipListScrollArea = {
+					blockoverride "block_scrollarea" {
+						maximumsize = { -1 400 }
+					}
+					blockoverride "scrollarea_content" {
+						fixedgridbox = {
+							addcolumn = 420
+							addrow = 30
+							setitemsizefromcell = yes
+		
+							datamodel = "[QuickChivalricOrderMembers.GetMembers]"
+							item = {
+								widget = {
+									background = {
+										visible = "[IsOdd_int32(PdxGuiWidget.GetIndexInDataModel)]"
+										using = tooltip_table_field_texture
+									}
+									hbox = {
+										margin = { 10 0 }
+										spacing = 10
+
+										country_flag_very_small = {
+											datacontext = "[Character.GetCourtCountry]"
+										}
+		
+										text_single = {
+											layoutpolicy_horizontal = expanding
+											text = "[Character.GetName]"
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+
+			TooltipScrolledFlavorTextBlock = {  # history_entries: 原为不可滚动的说明块
+				blockoverride "block_scrollarea" { maximumsize = { -1 400 } }
+				blockoverride "text" {
+					text = "[ChivalricOrder.GetDesc]"
 				}
 			}
 		}

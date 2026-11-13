@@ -1,5 +1,7 @@
 {
+  "character_tooltips.gui": "d274589a08019320487ce0967ac6f734edd29600a05bc0bc5edbc8f40b9b70c9",
   "country_tooltips.gui": "37c7147804466c94a3205777589f9dc40023e85d0949724b4464e1330d6371d9",
-  "society_tooltips.gui": "644d98c4c90e5c493b08eb97134f4a7583dc2068700d06dae0d9b1713da1915d",
-  "character_tooltips.gui": "d274589a08019320487ce0967ac6f734edd29600a05bc0bc5edbc8f40b9b70c9"
+  "government_tooltips.gui": "21cda6d1aa7e25c424fe6a0c91081b06baff01affc7e35593fee62df3fa50e94",
+  "religion_tooltips.gui": "d5599c2f0f997259ece577493cf6eec948184e09c1eb8de013458333e4959f6d",
+  "society_tooltips.gui": "644d98c4c90e5c493b08eb97134f4a7583dc2068700d06dae0d9b1713da1915d"
 }
