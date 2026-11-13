@@ -1,6 +1,6 @@
 # 描述扩展（Descriptions Expanded: Countries, Cultures, Dynasties & More）：发布工程
 
-这里把研究工程写好的国家、文化、王朝、语言、语族、圣地介绍构建成 EU5 模组，装进本机游戏做实验，也从这里发布到创意工坊。模组 ID `descriptions_expanded`，工坊条目 3838927963 公开，当前版本 1.1.0（2026-11-14）。正文、对象识别和写作规则都在研究工程，这里不改正文。
+这里把研究工程写好的国家、文化、王朝、语言、语族、圣地介绍构建成 EU5 模组，装进本机游戏做实验，也从这里发布到创意工坊。模组 ID `descriptions_expanded`，工坊条目 3838927963 公开，当前版本 1.1.1（2026-11-14）。正文、对象识别和写作规则都在研究工程，这里不改正文。
 
 用户 2026-11-12 定：以后所有新类别的描述（宗教、文化组、神祇等）都加进这个模组，不再另开新模组，所以模组名不写具体类别以外的限定。
 
@@ -96,3 +96,9 @@ python -B tools\build.py --verify dist\<新目录>
 - 流程：`build.py --uninstall` 删开发副本 → `release.py 1.1.0 --note … --commit`（4653dc9）→ 计划任务里 `steam_upload.py`（result 1，12,233,806 字节）和 `steam_page.py --host-images`（新覆盖表网址写进 `page.json` 和两份描述，fa8ce90）→ 计划任务里 `steam_page.py --descriptions`、`--assets`。中文改动说明用 Chrome 在 `editchangelogentry/3838927963/1794587775/?language=6` 补。
 - 回读：API visibility 0、file_size 12233806，主封面哈希等于新 cover.jpg，中英正文和覆盖表图片都是新的，中英改动说明都在。本机订阅版发版时还没更新下来，没有核对下载文件。
 - 注意：PowerShell 计划任务里 Python 写 stderr 会记成 NativeCommandError，看 `*_rc=` 和回执判断成败；在 Windows 上改 description 文件要按字节读写，`write_text` 会把换行改成 CRLF。
+
+## 1.1.1（2026-11-14）
+
+- 内容：覆盖率到 100%（7,075 条）。研究工程把 1.1.0 时判 skip 的 18 条（占位国家海盗、雇佣兵、旧德意志王国 OGK，14 个查不到对应的部族或地名政权，宗教学派三颂伽差）用 Codex 重写为 written 4、stub 14。
+- 流程同 1.1.0，一个计划任务里依次 `steam_upload.py`（result 1，12,249,370 字节）、`--host-images`、替换正文图片网址、`--descriptions`、`--assets`，全部 rc=0；中文改动说明用 Chrome 补（条目 1794589802）。回读：公开、文件大小一致、中英正文是 7,075 和新覆盖表、中英改动说明都在。
+- 注意：经 ssh 在 cmd 里给 `release.py --note` 传 `100%%` 会原样写进 CHANGELOG 和提交说明（cmd 交互模式不折叠 `%%`），这次事后改了 CHANGELOG；提交说明里留着 `%%`。
