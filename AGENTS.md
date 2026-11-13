@@ -1,6 +1,6 @@
 # 描述扩展（Descriptions Expanded: Countries, Cultures, Dynasties & More）：发布工程
 
-这里把研究工程写好的国家、文化、王朝、语言、语族、圣地介绍构建成 EU5 模组，装进本机游戏做实验，也从这里发布到创意工坊。模组 ID `descriptions_expanded`，工坊条目 3838927963 已上传 1.0.0，2026-11-13 已改为公开。正文、对象识别和写作规则都在研究工程，这里不改正文。
+这里把研究工程写好的国家、文化、王朝、语言、语族、圣地介绍构建成 EU5 模组，装进本机游戏做实验，也从这里发布到创意工坊。模组 ID `descriptions_expanded`，工坊条目 3838927963 公开，当前版本 1.1.0（2026-11-14）。正文、对象识别和写作规则都在研究工程，这里不改正文。
 
 用户 2026-11-12 定：以后所有新类别的描述（宗教、文化组、神祇等）都加进这个模组，不再另开新模组，所以模组名不写具体类别以外的限定。
 
@@ -88,3 +88,11 @@ python -B tools\build.py --verify dist\<新目录>
 - 2026-11-13 晚验收：条目已公开（API visibility=0），播放集“1”用工坊版，21:03 进游戏挂载无报错。但模组目录里的开发副本 `mod\descriptions_expanded` 和工坊版模组 ID 相同，**不在播放集里也被一起挂载**（debug.log 两条 Mounted Data）。当时两份游戏文件逐字节一致，没有影响显示；以后更新时旧开发副本会叠在新工坊版上，所以测完必须 `build.py --uninstall`（游戏开着时目录被锁，删不掉）。
 - 画廊的游戏截图裁到浮窗主体，留出标题和正文。画廊依次为中文封面、7 张浮窗特写、英文覆盖表。中文覆盖表通过 Steam 云独立托管，只放在中文版正文。中英文工坊正文都把推荐的两款 MOD 放在第三段，用醒目标题和两项链接列表展示，紧接其后是覆盖表。
 - Windows 计划任务用当前用户的交互会话启动 PowerShell，再切到发布目录运行 `steam_create.py`、`steam_page.py`。任务运行完删除。回执留在 `dist/create-1.0.0.json`、`dist/page-1.0.0.json`。
+
+## 1.1.0（2026-11-14）
+
+- 内容：新增 953 条（共 7,057）：1337 开局不在场的国家 865（含西班牙、大不列颠等只在建国规则里定义的可建国家）、宗教组 29、宗教学派 42、勋贵骑士团 17；浮窗修复（国家等介绍区上限 450，11 个原版浮窗说明块可滚动，语言浮窗三个列表限高）。用户 2026-11-14 进游戏测过，总体没问题。
+- 封面：Codex（gpt-6.1-terra，high）改 `tools/cover.py` 的 `CATEGORIES` 和行分布（英文 5 行、中文 4 行），新增三色 #008F80、#D53633、#A438A5，在 macOS 上 compose、derive 后拷回。
+- 流程：`build.py --uninstall` 删开发副本 → `release.py 1.1.0 --note … --commit`（4653dc9）→ 计划任务里 `steam_upload.py`（result 1，12,233,806 字节）和 `steam_page.py --host-images`（新覆盖表网址写进 `page.json` 和两份描述，fa8ce90）→ 计划任务里 `steam_page.py --descriptions`、`--assets`。中文改动说明用 Chrome 在 `editchangelogentry/3838927963/1794587775/?language=6` 补。
+- 回读：API visibility 0、file_size 12233806，主封面哈希等于新 cover.jpg，中英正文和覆盖表图片都是新的，中英改动说明都在。本机订阅版发版时还没更新下来，没有核对下载文件。
+- 注意：PowerShell 计划任务里 Python 写 stderr 会记成 NativeCommandError，看 `*_rc=` 和回执判断成败；在 Windows 上改 description 文件要按字节读写，`write_text` 会把换行改成 CRLF。
