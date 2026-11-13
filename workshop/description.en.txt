@@ -5,7 +5,6 @@ Adds EU5-flavoured English and Chinese descriptions to [b]7,075[/b] countries, d
 [list]
 [*]English and Chinese
 [*]Achievement compatible
-[*]All my future descriptions will be added to this mod
 [/list]
 
 [h2]My other mods[/h2]
