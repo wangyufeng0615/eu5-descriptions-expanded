@@ -1,2 +1,2 @@
-1.1.0
-Adds 953 new descriptions (7,057 in total): 865 countries that appear later in the game (released and restored states, polities that rise after 1337, and formable nations such as Spain and Great Britain), plus religion groups, religious schools and chivalric orders, extending the vanilla text. Tooltip fixes: long descriptions now scroll fully (Medina was cut by half a line), and the liturgical language tooltip no longer pushes its description off screen (Church Slavonic).
+1.1.1
+Coverage is now 100% (7,075 descriptions): adds the last 18 entries, including Pirates, Mercenaries, the old German kingdom and the Tristutik Gaccha religious school.
