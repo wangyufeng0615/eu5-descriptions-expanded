@@ -74,15 +74,18 @@ CATEGORIES = (                          # (英文, 中文, 颜色)；名称照�
     ('DYNASTIES', '王朝', '#D18B00'),
     ('CULTURES', '文化', '#24944A'),
     ('CULTURE GROUPS', '文化组', '#6E9A12'),
+    ('RELIGION GROUPS', '宗教组', '#008F80'),
     ('RELIGIONS', '宗教', '#8A3FC0'),
+    ('RELIGIOUS SCHOOLS', '宗教学派', '#D53633'),
     ('RELIGIOUS ASPECTS', '宗教信条', '#C2347E'),
     ('GODS', '神祇', '#4A4FC4'),
+    ('CHIVALRIC ORDERS', '勋贵骑士团', '#A438A5'),
     ('HOLY SITES', '圣地', '#E5631A'),
     ('LANGUAGES', '语言', '#2470D6'),
     ('LANGUAGE FAMILIES', '语族', '#0E9AA0'),
 )
-EN_ROWS = ((0, 1, 2), (3, 4), (5, 6, 7), (8, 9))
-ZH_ROWS = ((0, 1, 2, 3), (4, 5, 6), (7, 8, 9))
+EN_ROWS = ((0, 1, 2), (3, 4, 5), (6, 7), (8, 9, 10), (11, 12))
+ZH_ROWS = ((0, 1, 2, 3), (4, 5, 6), (7, 8, 9), (10, 11, 12))
 TITLE_BOTTOM = 587                      # 母版 1254 高时英文标题底边
 MARK_BOXES = ((21, 900, 491, 1042), (24, 1074, 442, 1213))   # 母版里 English ✓、中文 ✓ 的范围
 
