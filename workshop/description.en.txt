@@ -1,6 +1,6 @@
-Adds authentic EU5-flavoured descriptions to all kinds of miscellaneous entries: countries, dynasties, cultures, culture groups, religions, religious aspects, gods, holy sites, languages and language families! Hover over one to read it.
+Adds authentic EU5-flavoured descriptions to all kinds of miscellaneous entries: countries, dynasties, cultures, culture groups, religion groups, religions, religious schools, religious aspects, gods, chivalric orders, holy sites, languages and language families! Hover over one to read it.
 
-[b]6,104[/b] descriptions in total. Country coverage is for countries with territory at the 1337 start. Dynasty coverage is for dynasties with living members at that start. The dynasty tooltip displays the description through its head.
+[b]7,057[/b] descriptions in total. Countries include those that only appear later in the game: released or restored states, polities that rise after 1337, and formable nations such as Spain and Great Britain. Dynasty coverage is for dynasties with living members at that start. The dynasty tooltip displays the description through its head.
 
 [h2]I highly recommend using this mod with[/h2]
 [list]

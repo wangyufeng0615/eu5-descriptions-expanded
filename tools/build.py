@@ -40,8 +40,9 @@ CL_FILE = 'in_game/common/customizable_localization/lde_history_entries.txt'
 SPECIAL = set('[]$#"\\')
 VERSION_RE = re.compile(r'[0-9]+\.[0-9]+\.[0-9]+')
 KINDS = ('country', 'culture', 'dynasty', 'holy_site', 'language', 'language_family', 'religion',
-         'culture_group', 'god', 'religious_aspect')
-DESC_KINDS = ('language', 'language_family', 'holy_site', 'religion', 'culture_group', 'god', 'religious_aspect')
+         'culture_group', 'god', 'religious_aspect', 'religion_group', 'religious_school', 'chivalric_order')
+DESC_KINDS = ('language', 'language_family', 'holy_site', 'religion', 'culture_group', 'god', 'religious_aspect',
+              'religion_group', 'religious_school', 'chivalric_order')
 RAW_BAD = set('"\\')   # 原版原文里允许 $引用$、[函数]，但不能有引号、反斜杠（会破坏 yml）
 # 类别 -> (可定制本地化名, 对象类型, 本地化键前缀, 触发条件)
 CUSTOM = {
