@@ -54,6 +54,20 @@
       "file": "workshop/screenshots/kadhimiya-shrine.zh-CN.jpg",
       "language": "schinese",
       "caption": "巴格达卡济米耶圣陵的圣地介绍"
+    },
+    {
+      "file": "workshop/assets/coverage-20261112/coverage.en.png",
+      "language": "english",
+      "caption": "Description coverage by category"
+    },
+    {
+      "file": "workshop/assets/coverage-20261112/coverage.zh-CN.png",
+      "language": "schinese",
+      "caption": "各类词条的覆盖范围"
     }
-  ]
+  ],
+  "description_image_urls": {
+    "english": "https://images.steamusercontent.com/ugc/10307379643234548225/82756F09B8BCEA46DDBF773D34C2E5764F257F61/",
+    "schinese": "https://images.steamusercontent.com/ugc/9557863363842999392/2144B6067F8B59749DB92DBBA0064EA6872388DA/"
+  }
 }

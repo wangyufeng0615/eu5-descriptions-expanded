@@ -2,7 +2,7 @@
 
 共计 [b]6,104[/b] 条。国家覆盖 1337 年开局有领土的国家，王朝覆盖开局有在世成员的王朝，浮窗通过宗族领袖显示介绍。
 
-[img]{{coverage}}[/img]
+[img]https://images.steamusercontent.com/ugc/9557863363842999392/2144B6067F8B59749DB92DBBA0064EA6872388DA/[/img]
 
 [list]
 [*]支持英文和简体中文

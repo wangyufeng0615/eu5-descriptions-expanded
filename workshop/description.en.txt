@@ -2,7 +2,7 @@ Adds authentic EU5-flavoured descriptions to all kinds of miscellaneous entries:
 
 [b]6,104[/b] descriptions in total. Country coverage is for countries with territory at the 1337 start. Dynasty coverage is for dynasties with living members at that start. The dynasty tooltip displays the description through its head.
 
-[img]{{coverage}}[/img]
+[img]https://images.steamusercontent.com/ugc/10307379643234548225/82756F09B8BCEA46DDBF773D34C2E5764F257F61/[/img]
 
 [list]
 [*]Languages: English, Simplified Chinese

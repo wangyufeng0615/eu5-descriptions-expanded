@@ -1,6 +1,6 @@
 # 描述扩展（Descriptions Expanded: Countries, Cultures, Dynasties & More）：发布工程
 
-这里把研究工程写好的国家、文化、王朝、语言、语族、圣地介绍构建成 EU5 模组，装进本机游戏做实验，也从这里发布到创意工坊。模组 ID `descriptions_expanded`，工坊条目还没建（`project.json` 的 `publishedfileid` 为 null）。正文、对象识别和写作规则都在研究工程，这里不改正文。
+这里把研究工程写好的国家、文化、王朝、语言、语族、圣地介绍构建成 EU5 模组，装进本机游戏做实验，也从这里发布到创意工坊。模组 ID `descriptions_expanded`，工坊条目 3838927963 已上传 1.0.0，可见性为隐藏（私密）。正文、对象识别和写作规则都在研究工程，这里不改正文。
 
 用户 2026-11-12 定：以后所有新类别的描述（宗教、文化组、神祇等）都加进这个模组，不再另开新模组，所以模组名不写具体类别以外的限定。
 
@@ -38,7 +38,7 @@ python -B tools\build.py --verify dist\<新目录>
 ## 发布
 
 1. **更新数据**：研究工程评审流程跑完后 `tools/sync_workshop.sh`，进游戏看几个国家、文化、王朝、圣地的浮窗（中英文各看）。
-2. **准备版本**：`python -B tools\release.py <版本> --note "..." --install --commit`。升版本号、写 `CHANGELOG.md`、跑测试和检查、构建到 `dist\release-<版本>\`、核对、装进游戏并提交；失败会改回去。`project.json` 初始版本是 0.0.0，第一次发布就是 `release.py 0.1.0 --note "First release." --install --commit`。
+2. **准备版本**：`python -B tools\release.py <版本> --note "..." --install --commit`。升版本号、写 `CHANGELOG.md`、跑测试和检查、构建到 `dist\release-<版本>\`、核对、装进游戏并提交；失败会改回去。`project.json` 初始版本是 0.0.0，本模组首次打包为 1.0.0。用 `--install` 时会另外装入本地副本。
 3. **第一次上传**：作者确认后，在登录了 Steam 的桌面会话里依次运行（都用计划任务放进桌面会话：`schtasks /create ... /ru <用户名> /it` 再 `/run`，跑完删任务）：
    1. `python -B tools\steam_create.py 0.1.0 --notes-file workshop\changenotes.en.txt --output dist\create-0.1.0.json`：建私密条目，Steam 返回编号就写进 `project.json`。
    2. `python -B tools\steam_page.py --host-images --output dist\host-images.json`：把覆盖表图（`workshop/assets/coverage-20261112/`，`render.py` 在 Windows 上生成）存进 Steam 云并公开分享，网址记进 `page.json` 的 `description_image_urls`。托管要求条目已存在，所以放在建条目之后。
@@ -79,3 +79,9 @@ python -B tools\build.py --verify dist\<新目录>
 - 中文正文里夹的外文词（如金雀花王朝的 planta genista）会被游戏单独排成一行，前后都折行；数字在行尾也可能被拆开。是游戏排版对混排的处理，原版风味文本也一样，暂不处理（2026-11-12 截图时发现）。
 - 游戏开着时不要直接覆盖模组文件：`build.py --install` 先写临时目录、核对哈希，再整体改名替换。
 - 游戏更新改了原版浮窗模板（`--check --game-root` 报 `templates_unchanged` 有 false），要在研究工程更新 `data/vanilla_gui/` 并重新导出。
+
+## 1.0.0 私密上传（2026-11-13）
+
+- [工坊条目 3838927963](https://steamcommunity.com/sharedfiles/filedetails/?id=3838927963)，1.0.0，隐藏。中英文标题、正文和改动说明均已用作者登录的 Chrome 回读。Steam 订阅下载的 15 个文件（11,155,741 字节）与 `dist/release-1.0.0/build_receipt.json` 的文件 SHA-256 全部一致。最终包尚未进游戏。
+- 双语覆盖图随同中文封面和 7 张游戏截图上传至该工坊条目的画廊，再引用画廊地址到中英正文。条目处于隐藏期间用这个流程。日后替换画廊的覆盖图，先更新正文中的图片地址。
+- Windows 计划任务用当前用户的交互会话启动 PowerShell，再切到发布目录运行 `steam_create.py`、`steam_page.py`。任务运行完删除。回执留在 `dist/create-1.0.0.json`、`dist/page-1.0.0.json`。
