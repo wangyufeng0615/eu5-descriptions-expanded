@@ -2,7 +2,7 @@
 
 ## 1.1.1 — 2026-11-14
 
-- Coverage reaches 100%% (7,075 descriptions): add the last 18 entries, including Pirates, Mercenaries, the old German kingdom and the Tristutik Gaccha religious school.
+- Coverage reaches 100% (7,075 descriptions): add the last 18 entries, including Pirates, Mercenaries, the old German kingdom and the Tristutik Gaccha religious school.
 
 ## 1.1.0 — 2026-11-14
 
