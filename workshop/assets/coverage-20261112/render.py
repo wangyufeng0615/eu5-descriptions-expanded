@@ -7,39 +7,39 @@ from PIL import Image, ImageDraw, ImageFont
 
 ROOT = Path(__file__).resolve().parent
 S = 4
-W = 620
-PAD, ROW_H, HEAD_H, TOTAL_H, LEGEND_H, RADIUS = 18, 52, 34, 60, 30, 8
+W = 720
+PAD, ROW_H, HEAD_H, TOTAL_H, LEGEND_H, RADIUS = 18, 44, 34, 60, 30, 8
 BG, ROW_LINE, TRACK = '#2a2e33', '#3a3f45', '#44494f'
 GREEN, GREY, MUTED, WHITE = '#2ea043', '#8b949e', '#9aa4ae', '#ffffff'
 BOLD = 'C:/Windows/Fonts/msyhbd.ttc'
 REG = 'C:/Windows/Fonts/msyh.ttc'
-VAN_R, CNT_R, BAR_X, BAR_W, PCT_R = 286, 418, 432, 78, W - PAD
+VAN_R, CNT_R, BAR_X, BAR_W, PCT_R = 386, 518, 532, 78, W - PAD
 
 TEXT = {
     'en': {'head': ('Category', 'Vanilla', 'With this mod', 'Coverage'),
-           'country': ('Countries', 'Every country with land in 1337'),
-           'culture': ('Cultures', 'All cultures in the game'),
-           'dynasty': ('Dynasties', 'Every dynasty alive in 1337'),
-           'language': ('Languages', 'All languages in the game'),
-           'language_family': ('Language families', 'All language families'),
-           'holy_site': ('Holy sites', 'Shrines, temples and pilgrimage sites'),
-           'culture_group': ('Culture groups', 'All culture groups in the game'),
-           'religion': ('Religions', 'All religions in the game'),
-           'religious_aspect': ('Religious aspects', 'All religious aspects in the game'),
-           'god': ('Gods', 'All gods in the game'),
+           'country': ('Countries', None),
+           'culture': ('Cultures', None),
+           'dynasty': ('Dynasties', None),
+           'language': ('Languages', None),
+           'language_family': ('Language families', None),
+           'holy_site': ('Holy sites', None),
+           'culture_group': ('Culture groups (extends vanilla)', None),
+           'religion': ('Religions (extends vanilla)', None),
+           'religious_aspect': ('Religious aspects (extends vanilla)', None),
+           'god': ('Gods (extends vanilla)', None),
            'total': ('All', None),
            'legend': ('Vanilla description only', 'Written or extended by this mod')},
     'zh-CN': {'head': ('类别', '原版', '本模组', '覆盖率'),
-              'country': ('国家', '1337 年有领土的全部国家'),
-              'culture': ('文化', '游戏里的全部文化'),
-              'dynasty': ('王朝', '1337 年有在世成员的全部王朝'),
-              'language': ('语言', '游戏里的全部语言'),
-              'language_family': ('语族', '游戏里的全部语族'),
-              'holy_site': ('圣地', '神庙、圣陵和朝圣地'),
-              'culture_group': ('文化组', '游戏里的全部文化组'),
-              'religion': ('宗教', '游戏里的全部宗教'),
-              'religious_aspect': ('宗教信条', '游戏里的全部宗教信条'),
-              'god': ('神祇', '游戏里的全部神祇'),
+              'country': ('国家', None),
+              'culture': ('文化', None),
+              'dynasty': ('王朝', None),
+              'language': ('语言', None),
+              'language_family': ('语族', None),
+              'holy_site': ('圣地', None),
+              'culture_group': ('文化组（扩展了官方描述）', None),
+              'religion': ('宗教（扩展了官方描述）', None),
+              'religious_aspect': ('宗教信条（扩展了官方描述）', None),
+              'god': ('神祇（扩展了官方描述）', None),
               'total': ('合计', None),
               'legend': ('仅原版描述', '本模组撰写或补充')},
 }
@@ -79,10 +79,10 @@ def render(lang, data):
     f_num, f_van, f_pct, f_pct_big = font(BOLD, 15), font(REG, 15), font(BOLD, 17), font(BOLD, 24)
     y = PAD
     h1, h2, h3, h4 = t['head']
-    text(d, (PAD, y + 18), h1, f_head, MUTED)
-    text(d, (VAN_R, y + 18), h2, f_head, MUTED, 'rs')
-    text(d, (CNT_R, y + 18), h3, f_head, MUTED, 'rs')
-    text(d, (PCT_R, y + 18), h4, f_head, MUTED, 'rs')
+    text(d, (PAD, y + 18), h1, f_head, WHITE)
+    text(d, (VAN_R, y + 18), h2, f_head, WHITE, 'rs')
+    text(d, (CNT_R, y + 18), h3, f_head, WHITE, 'rs')
+    text(d, (PCT_R, y + 18), h4, f_head, WHITE, 'rs')
     y += HEAD_H
     for row in rows:
         total = row['key'] == 'total'
@@ -94,7 +94,7 @@ def render(lang, data):
             text(d, (PAD, mid - 3), name, f_name, WHITE)
             text(d, (PAD, mid + 15), sub, f_sub, MUTED)
         else:
-            text(d, (PAD, mid + 7), name, font(BOLD, 18), WHITE)
+            text(d, (PAD, mid + 6), name, font(BOLD, 18) if total else f_name, WHITE)
         text(d, (VAN_R, mid + 6), f"{row['vanilla']:,}", f_van, GREY, 'rs')
         text(d, (CNT_R, mid + 6), f"{row['mod']:,} / {row['total']:,}", f_num, WHITE, 'rs')
         bar(d, BAR_X, mid - (6 if total else 5), BAR_W, 12 if total else 10, row['vanilla'], row['mod'], row['total'])
