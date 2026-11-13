@@ -1,35 +1,32 @@
-为各种杂项词条（国家、王朝、文化、文化组、宗教组、宗教、宗教学派、宗教信条、神祇、勋贵骑士团、圣地、语言、语族），补充了正宗 EU5 风味的描述！鼠标悬停即可看到。
-
-共计 [b]7,075[/b] 条。国家除了 1337 年开局就有的，也包括游戏中途才出现的：被释放或复国的国家、后起的政权，以及西班牙、大不列颠这类可建国家。王朝覆盖开局有在世成员的王朝，浮窗通过宗族领袖显示介绍。
-
-[h2]强烈推荐搭配以下 MOD 一起使用[/h2]
-[list]
-[*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=3833397845][b]所有历史人物的描述[/b][/url]
-[*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=3830305546][b]所有地块的描述[/b][/url]
-[/list]
+为国家、王朝、文化、宗教、神祇、骑士团、圣地、语言等 [b]7,075[/b] 个对象补上 EU5 风味的中英文介绍，鼠标悬停即可看到。原版已有描述的，保留原文并接着补写。
 
 [img]https://images.steamusercontent.com/ugc/14232436394044768126/2FE3E6C082F1AF30FECBC07EB9DDB9F6D3181826/[/img]
 
 [list]
-[*]支持英文和简体中文
-[*]严格保持 EU5 的风味
-[*]原版已有描述的（宗教、文化组、神祇等），保留原版描述，在后面补充新的段落
-[*]基于 EU5 1.4.7，已在游戏内检查成就资格
+[*]支持英文、中文
+[*]兼容成就
+[*]以后新写的各类描述都会放进这个 MOD
 [/list]
 
-[h2]MOD 兼容性[/h2]
-已对照创意工坊订阅数前 60 的 EU5 模组（2026 年 11 月）逐个比对文件。
+[h2]我的其他 MOD[/h2]
+[b]欧陆风云5[/b]：建议三个一起订阅
 [list]
-[*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=3601047146][b]Glorp UI[/b][/url]：两者都改了国家浮窗，只能生效一份。同时启用时，要么 Glorp 在国家浮窗里的兵力明细消失，要么本模组的国家介绍消失。计划出兼容补丁。
-[*]新增国家、文化、宗教的模组（1444 – The Dawn of Discovery、Basileia Romaion、National Destinies、New World Improvement Project、Formable Nations: Reworked）：可以一起用，但它们新增的对象暂时没有介绍。
-[*]少数汉化和内容模组改了几条同名文本（各 2 到 14 条：凯撒汉化、CN 官中汉化修正、1444 – The Dawn of Discovery、Basileia Romaion），显示哪一份取决于加载顺序。
-[*]和其他模组没有发现冲突的文件。
+[*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=3830305546][b]所有地块的描述[/b][/url]：地图上全部 28,316 个地块的介绍
+[*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=3833397845][b]所有历史人物的描述[/b][/url]：7,789 位历史人物的生平，悬停人物即可看到
+[/list]
+[b]欧陆风云4[/b]
+[list]
+[*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=3833082096][b]所有省份和伟大工程的描述[/b][/url]：3,272 个陆地省份和 139 座伟大工程的介绍
 [/list]
 
-每条介绍都使用最好的 AI 模型（Claude Opus 5.5、Claude Sonnet 5.5、GPT-6.1 Terra 等），搜索以维基百科为主的英文和当地语言资料，经过多轮编撰、打磨和事实抽查，最终写成的。我使用的都是最好的模型，消耗了大量 Token 和金钱成本，但是为了这个 Mod，我想这是值得的 :)
+[h2]兼容性[/h2]
+已与订阅数前 60 的 EU5 模组逐个比对文件，需要留意的只有：
+[list]
+[*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=3601047146]Glorp UI[/url]：两者都改了国家浮窗，同时启用只有一方生效，计划出兼容补丁。
+[*]新增国家、文化、宗教的模组：可以一起用，新增的对象没有介绍。
+[*]少数汉化和内容模组改了几条同名文本，看加载顺序。
+[/list]
 
-后续的所有词条描述，都会补充到这个 MOD 里，不会再新增新的 MOD 了！所以，历史人物 MOD、地块 MOD 和这个 MOD，推荐一起打包订阅。
-
-如果发现错误，欢迎留言，我会持续维护更新这个 MOD！
-
-欢迎加入 QQ 群，一起共建这个 MOD：[b]518622967[/b]
+[h2]反馈与交流[/h2]
+发现错误欢迎留言，我会持续订正。
+QQ 群：[b]518622967[/b]
