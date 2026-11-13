@@ -679,21 +679,30 @@ template language_tooltip_content {
 		datacontext = "[StringToStringPairList(Language.GetTooltip)]"
 	}
 	
-	TooltipTextBlock = {
-		blockoverride "text" {
-			text = "[Language.GetDialectsInfo]"
+	TooltipScrolledContentSection = {  # history_entries: 限高可滚动，原为直接的 TooltipTextBlock
+		blockoverride "block_scrollarea" { maximumsize = { -1 120 } }
+			TooltipTextBlock = {
+			blockoverride "text" {
+				text = "[Language.GetDialectsInfo]"
+			}
 		}
 	}
 	
-	TooltipTextBlock = {
-		blockoverride "text" {
-			text = "[Language.GetCulturesInfo]"
+	TooltipScrolledContentSection = {  # history_entries: 限高可滚动，原为直接的 TooltipTextBlock
+		blockoverride "block_scrollarea" { maximumsize = { -1 120 } }
+			TooltipTextBlock = {
+			blockoverride "text" {
+				text = "[Language.GetCulturesInfo]"
+			}
 		}
 	}
 	
-	TooltipTextBlock = {
-		blockoverride "text" {
-			text = "[Language.GetReligionsInfo]"
+	TooltipScrolledContentSection = {  # history_entries: 限高可滚动，原为直接的 TooltipTextBlock
+		blockoverride "block_scrollarea" { maximumsize = { -1 160 } }
+			TooltipTextBlock = {
+			blockoverride "text" {
+				text = "[Language.GetReligionsInfo]"
+			}
 		}
 	}
 
