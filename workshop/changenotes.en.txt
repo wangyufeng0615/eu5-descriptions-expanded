@@ -1,1 +1,2 @@
-0.1.0: First release.
+1.0.0
+First release. Adds 6,104 descriptions in English and Simplified Chinese across ten categories.

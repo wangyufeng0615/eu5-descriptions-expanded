@@ -1,19 +1,18 @@
 Adds authentic EU5-flavoured descriptions to all kinds of miscellaneous entries: countries, dynasties, cultures, culture groups, religions, religious aspects, gods, holy sites, languages and language families! Hover over one to read it.
 
-[b]6,104[/b] descriptions in total:
+[b]6,104[/b] descriptions in total. Country coverage is for countries with territory at the 1337 start. Dynasty coverage is for dynasties with living members at that start. The dynasty tooltip displays the description through its head.
 
 [img]{{coverage}}[/img]
 
 [list]
-[*]Languages: English, Chinese
+[*]Languages: English, Simplified Chinese
 [*]Strictly keeps EU5's flavour
 [*]Where the game already has a description (religions, culture groups, gods and more), it is kept and extended with new paragraphs
-[*]Can be added to an existing save
-[*]Ironman and achievement compatible
+[*]Based on EU5 1.4.7. Achievement eligibility was checked in game.
 [*]Highly recommended together with my [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3833397845]historical character descriptions[/url] and [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3830305546]tile descriptions[/url] mods
 [/list]
 
-Every description was written with the best AI models (Claude Opus 5.5, Claude Sonnet 5.5, GPT-6.1 Terra and others), drawing on sources in English and local languages, mainly Wikipedia, through several rounds of drafting, polishing and fact-checking. I used the best models available, at a large cost in tokens and money, but for this mod, I think it was worth it :)
+Every description was written with the best AI models (Claude Opus 5.5, Claude Sonnet 5.5, GPT-6.1 Terra and others), drawing on sources in English and local languages, mainly Wikipedia, through several rounds of drafting, editing and spot-checking. I used the best models available, at a large cost in tokens and money, but for this mod, I think it was worth it :)
 
 All my future descriptions will be added to this mod; there will be no new separate mods. So the character, tile and this mod are best subscribed together.
 

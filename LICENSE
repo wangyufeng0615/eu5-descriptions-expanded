@@ -1,8 +1,8 @@
 # License scope
 
 - Tools, tests and technical documentation: **MIT**, see `LICENSES/MIT.txt`.
-- The English descriptions and their Simplified Chinese versions: **CC BY-SA 4.0**, see `LICENSES/CC-BY-SA-4.0.txt` and https://creativecommons.org/licenses/by-sa/4.0/.
+- The new English descriptions and their Simplified Chinese versions: **CC BY-SA 4.0**, see `LICENSES/CC-BY-SA-4.0.txt` and https://creativecommons.org/licenses/by-sa/4.0/.
 
-The description licence covers the `en` and `zh` fields of `data/entries.jsonl` and the resulting `lde_*` and `*_desc` values in the built localization files. Credit the **Descriptions Expanded contributors**, keep the per-entry source links in `sources/sources.jsonl`, say what you changed, and share adaptations under CC BY-SA 4.0 or a compatible licence.
+The description licence covers the `en` and `zh` fields of `data/entries.jsonl` and only the new text they contribute to the built localization files. The `official_raw` field and the original EU5 passages retained in the built localization files are Paradox material and are excluded. Credit the **Descriptions Expanded contributors**, keep the per-entry source links in `sources/sources.jsonl`, say what you changed, and share adaptations under CC BY-SA 4.0 or a compatible licence.
 
 The descriptions are AI-assisted summaries written from the consulted sources, mostly Wikipedia in English and other languages; they are not copies of those pages or of official EU5 text. The licences grant only what the contributors can grant. Facts, game IDs and other interoperability identifiers are not claimed. Paradox game files (including the vanilla tooltip templates this mod extends), trademarks and third-party material are not relicensed. The cover and thumbnail were generated for this project with an AI image model and are not covered by either licence. See `CREDITS.md`.

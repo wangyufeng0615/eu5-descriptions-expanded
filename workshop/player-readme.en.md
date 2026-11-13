@@ -6,4 +6,4 @@ Dynasties show their description through the dynasty head, so a dynasty with no 
 
 Manual install: extract the release ZIP into `Documents\Paradox Interactive\Europa Universalis V\mod\` so that you have `mod\descriptions_expanded\` (keep the hidden `.metadata` folder), then enable the mod in Mods and DLC. Do not enable a manual copy and the Workshop copy together.
 
-The descriptions were written with AI assistance from published sources, mostly Wikipedia, matched to the game's objects and checked by automated and manual review. Corrections are welcome in the Workshop comments. Description text is CC BY-SA 4.0, tools are MIT; see LICENSE and CREDITS.md. Per-entry sources are in `sources/sources.jsonl`.
+The descriptions were written with AI assistance from published sources, mostly Wikipedia, matched to the game's objects and checked by automated and manual review. Corrections are welcome in the Workshop comments. The mod's new description text is CC BY-SA 4.0, tools are MIT; see LICENSE and CREDITS.md. Per-entry sources are in `sources/sources.jsonl`.

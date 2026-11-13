@@ -6,4 +6,4 @@
 
 手动安装：把发布的 ZIP 解压到 `文档\Paradox Interactive\Europa Universalis V\mod\`，得到 `mod\descriptions_expanded\`（保留隐藏的 `.metadata` 文件夹），再在“模组与 DLC”里启用。手动安装的副本不要和创意工坊订阅的同时启用。
 
-介绍由 AI 辅助、依据公开资料（以维基百科为主）写成，与游戏对象逐一对应，经过自动和人工复核。发现错误欢迎在创意工坊留言。介绍正文采用 CC BY-SA 4.0，工具采用 MIT，见 LICENSE 和 CREDITS.md；每条的资料来源在 `sources/sources.jsonl`。
+介绍由 AI 辅助、依据公开资料（以维基百科为主）写成，与游戏对象逐一对应，经过自动和人工复核。发现错误欢迎在创意工坊留言。模组新增的介绍文字采用 CC BY-SA 4.0，工具采用 MIT，见 LICENSE 和 CREDITS.md；每条的资料来源在 `sources/sources.jsonl`。
