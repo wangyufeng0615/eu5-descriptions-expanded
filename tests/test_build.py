@@ -93,6 +93,26 @@ class TestBuild(Fixture):
         self.assertNotIn('english_language_desc', new)
         self.assertIn(' chartres_cathedral_desc: "A cathedral."\n', new)
 
+    def test_official_raw_is_kept_before_our_text(self):
+        god = {'kind': 'god', 'id': 'nyambe_god', 'verdict': 'written', 'official': True,
+               'en': 'Nyambe was worshipped widely.\n\nHe withdrew to the sky.', 'zh': '尼扬贝受到广泛崇拜。\n\n他退居天上。',
+               'official_raw': {'en': "$nyambe_god$ is the main [gods|e] of the #bold Bantu#!.",
+                                'zh': "$nyambe_god$是[gods|e]。"}, 'sources': SRC}
+        self.write_rows([god])
+        f = self.files()
+        en = f['in_game/localization/english/replace/lde_history_entries_replace_l_english.yml'].decode('utf-8-sig')
+        zh = f['in_game/localization/simp_chinese/replace/lde_history_entries_replace_l_simp_chinese.yml'].decode('utf-8-sig')
+        self.assertIn(' nyambe_god_desc: "$nyambe_god$ is the main [gods|e] of the #bold Bantu#!.\\n\\n'
+                      'Nyambe was worshipped widely.\\n\\nHe withdrew to the sky."\n', en)
+        self.assertIn(' nyambe_god_desc: "$nyambe_god$是[gods|e]。\\n\\n尼扬贝受到广泛崇拜。\\n\\n他退居天上。"\n', zh)
+        for bad_raw in ({'en': 'has "quote"', 'zh': '可'}, {'en': 'two\nlines', 'zh': '可'}, {'en': 'ok'}, 'text'):
+            self.write_rows([{**god, 'official_raw': bad_raw}])
+            with self.assertRaises(ValueError):
+                build.load_rows(self.root)
+        self.write_rows([{**god, 'official': False}])
+        with self.assertRaises(ValueError):
+            build.load_rows(self.root)
+
     def test_hash_collision_rename(self):
         f = self.files()
         en = f['in_game/localization/english/lde_history_entries_l_english.yml'].decode('utf-8-sig')
