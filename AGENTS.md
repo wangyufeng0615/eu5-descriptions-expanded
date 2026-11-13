@@ -83,5 +83,5 @@ python -B tools\build.py --verify dist\<新目录>
 ## 1.0.0 私密上传（2026-11-13）
 
 - [工坊条目 3838927963](https://steamcommunity.com/sharedfiles/filedetails/?id=3838927963)，1.0.0，隐藏。中英文标题、正文和改动说明均已用作者登录的 Chrome 回读。Steam 订阅下载的 15 个文件（11,155,741 字节）与 `dist/release-1.0.0/build_receipt.json` 的文件 SHA-256 全部一致。最终包尚未进游戏。
-- 双语覆盖图随同中文封面和 7 张游戏截图上传至该工坊条目的画廊，再引用画廊地址到中英正文。条目处于隐藏期间用这个流程。日后替换画廊的覆盖图，先更新正文中的图片地址。
+- 画廊的游戏截图裁到浮窗主体，留出标题和正文。画廊依次为中文封面、7 张浮窗特写、英文覆盖表。中文覆盖表通过 Steam 云独立托管，只放在中文版正文。中英文工坊正文都把推荐的两款 MOD 放在第三段，用醒目标题和两项链接列表展示，紧接其后是覆盖表。
 - Windows 计划任务用当前用户的交互会话启动 PowerShell，再切到发布目录运行 `steam_create.py`、`steam_page.py`。任务运行完删除。回执留在 `dist/create-1.0.0.json`、`dist/page-1.0.0.json`。

@@ -2,14 +2,19 @@
 
 共计 [b]6,104[/b] 条。国家覆盖 1337 年开局有领土的国家，王朝覆盖开局有在世成员的王朝，浮窗通过宗族领袖显示介绍。
 
-[img]https://images.steamusercontent.com/ugc/9557863363842999392/2144B6067F8B59749DB92DBBA0064EA6872388DA/[/img]
+[h2]强烈推荐搭配以下 MOD 一起使用[/h2]
+[list]
+[*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=3833397845][b]历史人物描述[/b][/url]
+[*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=3830305546][b]地块描述[/b][/url]
+[/list]
+
+[img]https://images.steamusercontent.com/ugc/15396340188862483783/2144B6067F8B59749DB92DBBA0064EA6872388DA/[/img]
 
 [list]
 [*]支持英文和简体中文
 [*]严格保持 EU5 的风味
 [*]原版已有描述的（宗教、文化组、神祇等），保留原版描述，在后面补充新的段落
 [*]基于 EU5 1.4.7，已在游戏内检查成就资格
-[*]强烈推荐和[url=https://steamcommunity.com/sharedfiles/filedetails/?id=3833397845]历史人物描述[/url]、[url=https://steamcommunity.com/sharedfiles/filedetails/?id=3830305546]地块描述[/url] MOD 一起使用
 [/list]
 
 每条介绍都使用最好的 AI 模型（Claude Opus 5.5、Claude Sonnet 5.5、GPT-6.1 Terra 等），搜索以维基百科为主的英文和当地语言资料，经过多轮编撰、打磨和事实抽查，最终写成的。我使用的都是最好的模型，消耗了大量 Token 和金钱成本，但是为了这个 Mod，我想这是值得的 :)

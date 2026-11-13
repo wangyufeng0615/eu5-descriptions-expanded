@@ -2,6 +2,12 @@ Adds authentic EU5-flavoured descriptions to all kinds of miscellaneous entries:
 
 [b]6,104[/b] descriptions in total. Country coverage is for countries with territory at the 1337 start. Dynasty coverage is for dynasties with living members at that start. The dynasty tooltip displays the description through its head.
 
+[h2]I highly recommend using this mod with[/h2]
+[list]
+[*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=3833397845][b]Historical Character Descriptions[/b][/url]
+[*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=3830305546][b]Tile Descriptions[/b][/url]
+[/list]
+
 [img]https://images.steamusercontent.com/ugc/10307379643234548225/82756F09B8BCEA46DDBF773D34C2E5764F257F61/[/img]
 
 [list]
@@ -9,7 +15,6 @@ Adds authentic EU5-flavoured descriptions to all kinds of miscellaneous entries:
 [*]Strictly keeps EU5's flavour
 [*]Where the game already has a description (religions, culture groups, gods and more), it is kept and extended with new paragraphs
 [*]Based on EU5 1.4.7. Achievement eligibility was checked in game.
-[*]Highly recommended together with my [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3833397845]historical character descriptions[/url] and [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3830305546]tile descriptions[/url] mods
 [/list]
 
 Every description was written with the best AI models (Claude Opus 5.5, Claude Sonnet 5.5, GPT-6.1 Terra and others), drawing on sources in English and local languages, mainly Wikipedia, through several rounds of drafting, editing and spot-checking. I used the best models available, at a large cost in tokens and money, but for this mod, I think it was worth it :)

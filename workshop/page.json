@@ -21,37 +21,37 @@
   ],
   "screenshots": [
     {
-      "file": "workshop/screenshots/england.en.jpg",
+      "file": "workshop/screenshots/england.detail.en.jpg",
       "language": "english",
       "caption": "The Kingdom of England: a country description"
     },
     {
-      "file": "workshop/screenshots/english-culture.en.jpg",
+      "file": "workshop/screenshots/english-culture.detail.en.jpg",
       "language": "english",
       "caption": "The English: a culture description"
     },
     {
-      "file": "workshop/screenshots/plantagenet.en.jpg",
+      "file": "workshop/screenshots/plantagenet.detail.en.jpg",
       "language": "english",
       "caption": "The Plantagenets, shown through the dynasty head"
     },
     {
-      "file": "workshop/screenshots/england.zh-CN.jpg",
+      "file": "workshop/screenshots/england.detail.zh-CN.jpg",
       "language": "schinese",
       "caption": "英格兰王国的国家介绍"
     },
     {
-      "file": "workshop/screenshots/english-culture.zh-CN.jpg",
+      "file": "workshop/screenshots/english-culture.detail.zh-CN.jpg",
       "language": "schinese",
       "caption": "英格兰人的文化介绍"
     },
     {
-      "file": "workshop/screenshots/plantagenet.zh-CN.jpg",
+      "file": "workshop/screenshots/plantagenet.detail.zh-CN.jpg",
       "language": "schinese",
       "caption": "金雀花王朝，经宗族领袖显示"
     },
     {
-      "file": "workshop/screenshots/kadhimiya-shrine.zh-CN.jpg",
+      "file": "workshop/screenshots/kadhimiya-shrine.detail.zh-CN.jpg",
       "language": "schinese",
       "caption": "巴格达卡济米耶圣陵的圣地介绍"
     },
@@ -59,15 +59,10 @@
       "file": "workshop/assets/coverage-20261112/coverage.en.png",
       "language": "english",
       "caption": "Description coverage by category"
-    },
-    {
-      "file": "workshop/assets/coverage-20261112/coverage.zh-CN.png",
-      "language": "schinese",
-      "caption": "各类词条的覆盖范围"
     }
   ],
   "description_image_urls": {
     "english": "https://images.steamusercontent.com/ugc/10307379643234548225/82756F09B8BCEA46DDBF773D34C2E5764F257F61/",
-    "schinese": "https://images.steamusercontent.com/ugc/9557863363842999392/2144B6067F8B59749DB92DBBA0064EA6872388DA/"
+    "schinese": "https://images.steamusercontent.com/ugc/15396340188862483783/2144B6067F8B59749DB92DBBA0064EA6872388DA/"
   }
 }
