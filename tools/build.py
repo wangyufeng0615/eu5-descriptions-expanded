@@ -9,7 +9,7 @@ python -B tools/build.py --check --game-root "<EU5 安装目录>"   # 另外核�
 数据和改写过的浮窗模板由研究工程导出（研究工程 tools/sync_workshop.sh）。模组名、版本等在 project.json。
 
 显示方式（2026-11-11、11-12 游戏内实测）：
-- 语言、语系、圣地：原版浮窗已有描述位，只写 <ID>_desc；官方已有描述的放进 replace/ 覆盖。
+- 语言、语系、圣地、宗教：原版浮窗已有描述位，只写 <ID>_desc；官方已有描述的放进 replace/ 覆盖（宗教原版条条都有，全部覆盖）。
 - 国家、文化、王朝：mod_template 里的浮窗模板在底部加一块可滚动的介绍，按 ID 选文本用可定制本地化；
   王朝经宗族领袖取文本，没有在世领袖的王朝不显示。
 游戏开着时会监视模组文件并自动重载，所以安装时先写到同盘临时目录、核对哈希，再整体改名替换。
@@ -37,8 +37,8 @@ GUI = 'in_game/gui/zz_lde_history_tooltips.gui'
 CL_FILE = 'in_game/common/customizable_localization/lde_history_entries.txt'
 SPECIAL = set('[]$#"\\')
 VERSION_RE = re.compile(r'[0-9]+\.[0-9]+\.[0-9]+')
-KINDS = ('country', 'culture', 'dynasty', 'holy_site', 'language', 'language_family')
-DESC_KINDS = ('language', 'language_family', 'holy_site')
+KINDS = ('country', 'culture', 'dynasty', 'holy_site', 'language', 'language_family', 'religion')
+DESC_KINDS = ('language', 'language_family', 'holy_site', 'religion')
 # 类别 -> (可定制本地化名, 对象类型, 本地化键前缀, 触发条件)
 CUSTOM = {
     'country': ('lde_country_desc', 'country', 'lde_ctry_', lambda i: f'exists = c:{i} this = c:{i}'),

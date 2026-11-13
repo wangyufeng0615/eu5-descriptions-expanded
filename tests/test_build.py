@@ -127,7 +127,7 @@ class TestBuild(Fixture):
     def test_rejects_bad_rows(self):
         for bad in ({**ROWS[0], 'sources': []}, {**ROWS[0], 'en': 'has [brackets]'}, {**ROWS[0], 'zh': '两行\n文字'},
                     {**ROWS[0], 'verdict': 'skip'}, {**ROWS[0], 'en': 'Three\n\n\nnewlines.'},
-                    {**ROWS[0], 'en': 'Two\n\nparagraphs.'}, {**ROWS[0], 'kind': 'religion'},
+                    {**ROWS[0], 'en': 'Two\n\nparagraphs.'}, {**ROWS[0], 'kind': 'deity'},
                     {**ROWS[0], 'official': True}):
             self.write_rows([bad])
             with self.assertRaises(ValueError):

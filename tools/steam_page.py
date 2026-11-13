@@ -188,6 +188,8 @@ class Steam:
         return results
 
     def description(self, lang, text, title):
+        if '{{' in text or '}}' in text:  # 文案里的占位符（{{coverage}} 图片地址、{{qq}} 群号）要先换成实际内容
+            raise RuntimeError(f'{lang} description still has a {{placeholder}}')
         handle = self.ug('StartItemUpdate', U64, [U32,U64], APP, ITEM)
         assert self.ug('SetItemUpdateLanguage', B, [U64,S], handle, lang.encode())
         assert self.ug('SetItemTitle', B, [U64,S], handle, title.encode())

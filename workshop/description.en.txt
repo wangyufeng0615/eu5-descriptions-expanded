@@ -1,29 +1,19 @@
-[h1]Descriptions for countries, cultures, dynasties and more[/h1]
+Adds authentic EU5-flavoured descriptions to all kinds of miscellaneous entries: countries, dynasties, cultures, culture groups, religions, religious aspects, gods, holy sites, languages and language families! Hover over one to read it.
 
-Vanilla EU5 describes only 22 of these.
+[b]5,294[/b] descriptions in total:
 
-This mod adds descriptions to [b]5,294[/b] of them: every country with land in 1337, every culture, every dynasty alive in 1337, and every language, language family and holy site. Hover over one to read it at the bottom of the tooltip.
+[img]{{coverage}}[/img]
 
 [list]
-[*]Supports English and Chinese
-[*]Keeps EU5's flavour
+[*]Languages: English, Chinese
+[*]Strictly keeps EU5's flavour
 [*]Can be added to an existing save
 [*]Ironman and achievement compatible
-[*]Works together with my character and tile description mods
+[*]Highly recommended together with my [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3833397845]historical character descriptions[/url] and [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3830305546]tile descriptions[/url] mods
 [/list]
 
-Every description is based on sources, mainly Wikipedia in English and local languages, and went through several rounds of checking. I used the best models available and went through a huge number of tokens. But for this mod, I think it was worth it :)
+Every description was written with the best AI models (Claude Opus 5.5, Claude Sonnet 5.5, GPT-6.1 Terra and others), drawing on sources in English and local languages, mainly Wikipedia, through several rounds of drafting, polishing and fact-checking. I used the best models available, at a large cost in tokens and money, but for this mod, I think it was worth it :)
 
-All my future descriptions will go into this mod. Religions, culture groups and more will be added as updates. If you find a mistake, please leave a comment. I'll keep maintaining and updating this mod!
+All my future descriptions will be added to this mod; there will be no new separate mods. So the character, tile and this mod are best subscribed together.
 
-[h2]My other mods[/h2]
-[list]
-[*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=3830305546][b]Descriptions for Every Tile[/b][/url] (Europa Universalis V): descriptions for all 28,316 tiles on the EU5 map.
-[*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=3833397845][b]Descriptions for Every Historical Character[/b][/url] (Europa Universalis V): biographies for 7,789 historical characters.
-[*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=3833082096][b]Descriptions for Every Province and Great Project[/b][/url] (Europa Universalis IV): descriptions for all 3,272 land provinces and 139 great projects.
-[/list]
-
-[h2]Update history[/h2]
-[list]
-[*]0.1.0: First release.
-[/list]
+If you find a mistake, please leave a comment. I'll keep maintaining and updating this mod!
