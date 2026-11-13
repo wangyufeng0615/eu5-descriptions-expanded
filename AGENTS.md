@@ -1,6 +1,6 @@
 # 描述扩展（Descriptions Expanded: Countries, Cultures, Dynasties & More）：发布工程
 
-这里把研究工程写好的国家、文化、王朝、语言、语族、圣地介绍构建成 EU5 模组，装进本机游戏做实验，也从这里发布到创意工坊。模组 ID `descriptions_expanded`，工坊条目 3838927963 已上传 1.0.0，可见性为隐藏（私密）。正文、对象识别和写作规则都在研究工程，这里不改正文。
+这里把研究工程写好的国家、文化、王朝、语言、语族、圣地介绍构建成 EU5 模组，装进本机游戏做实验，也从这里发布到创意工坊。模组 ID `descriptions_expanded`，工坊条目 3838927963 已上传 1.0.0，2026-11-13 已改为公开。正文、对象识别和写作规则都在研究工程，这里不改正文。
 
 用户 2026-11-12 定：以后所有新类别的描述（宗教、文化组、神祇等）都加进这个模组，不再另开新模组，所以模组名不写具体类别以外的限定。
 
@@ -29,6 +29,7 @@ cd /d V:\paradox-mods\eu5-history-entries\workshop
 python -B -m unittest discover -s tests -v
 python -B tools\build.py --check [--game-root "C:\Program Files (x86)\Steam\steamapps\common\Europa Universalis V"]
 python -B tools\build.py --install            :: 构建到 dist\dev 并装进模组目录（名字带 "(local dev)"）
+python -B tools\build.py --uninstall          :: 测完删掉开发副本（游戏要先关）
 python -B tools\build.py --output dist\<新目录>
 python -B tools\build.py --verify dist\<新目录>
 ```
@@ -82,6 +83,8 @@ python -B tools\build.py --verify dist\<新目录>
 
 ## 1.0.0 私密上传（2026-11-13）
 
-- [工坊条目 3838927963](https://steamcommunity.com/sharedfiles/filedetails/?id=3838927963)，1.0.0，隐藏。中英文标题、正文和改动说明均已用作者登录的 Chrome 回读。Steam 订阅下载的 15 个文件（11,155,741 字节）与 `dist/release-1.0.0/build_receipt.json` 的文件 SHA-256 全部一致。最终包尚未进游戏。
+- [工坊条目 3838927963](https://steamcommunity.com/sharedfiles/filedetails/?id=3838927963)，1.0.0，隐藏。中英文标题、正文和改动说明均已用作者登录的 Chrome 回读。Steam 订阅下载的 15 个文件（11,155,741 字节）与 `dist/release-1.0.0/build_receipt.json` 的文件 SHA-256 全部一致。
+
+- 2026-11-13 晚验收：条目已公开（API visibility=0），播放集“1”用工坊版，21:03 进游戏挂载无报错。但模组目录里的开发副本 `mod\descriptions_expanded` 和工坊版模组 ID 相同，**不在播放集里也被一起挂载**（debug.log 两条 Mounted Data）。当时两份游戏文件逐字节一致，没有影响显示；以后更新时旧开发副本会叠在新工坊版上，所以测完必须 `build.py --uninstall`（游戏开着时目录被锁，删不掉）。
 - 画廊的游戏截图裁到浮窗主体，留出标题和正文。画廊依次为中文封面、7 张浮窗特写、英文覆盖表。中文覆盖表通过 Steam 云独立托管，只放在中文版正文。中英文工坊正文都把推荐的两款 MOD 放在第三段，用醒目标题和两项链接列表展示，紧接其后是覆盖表。
 - Windows 计划任务用当前用户的交互会话启动 PowerShell，再切到发布目录运行 `steam_create.py`、`steam_page.py`。任务运行完删除。回执留在 `dist/create-1.0.0.json`、`dist/page-1.0.0.json`。

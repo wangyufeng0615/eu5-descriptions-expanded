@@ -4,6 +4,7 @@ python -B tools/build.py --check                      # 只检查数据和配置
 python -B tools/build.py --output dist/<新目录>        # 构建模组文件夹、ZIP 和构建回执（目录必须是新的）
 python -B tools/build.py --verify dist/<目录>          # 按当前源文件重算，核对已构建的文件夹、ZIP 和回执
 python -B tools/build.py --install [--only-written]   # 开发用：构建到 dist/dev 并装进本机 EU5 模组目录
+python -B tools/build.py --uninstall                  # 测完删掉开发副本（和工坊订阅版同 ID，会一起挂载）
 python -B tools/build.py --check --game-root "<EU5 安装目录>"   # 另外核对三个原版浮窗模板有没有随游戏更新变化
 
 数据和改写过的浮窗模板由研究工程导出（研究工程 tools/sync_workshop.sh）。模组名、版本等在 project.json。
@@ -335,7 +336,26 @@ def install(cfg, src, mod_root=MOD_ROOT):
     n = len(tree_digests(dst))
     print(f'已装进 {dst}，{n} 个文件哈希一致。' + ('游戏正在运行，会自动重载，等它读完；不行就冷启动。'
                                                 if game_running() else '下次启动游戏生效。'))
+    print('注意：开发副本和工坊订阅版模组 ID 相同，即使不在播放集里，游戏也会把两份一起挂载；测完运行 --uninstall。')
     return dst
+
+
+def uninstall(cfg, mod_root=MOD_ROOT):
+    """删掉 --install 装的开发副本。只认名字带 (local dev) 的本模组副本；游戏运行时目录被占用，拒绝。"""
+    dst = mod_root / cfg['mod_id']
+    if not dst.exists():
+        print(f'{dst} 不存在，无需卸载。')
+        return
+    try:
+        meta = json.loads((dst / '.metadata' / 'metadata.json').read_text(encoding='utf-8-sig'))
+    except (OSError, ValueError):
+        meta = {}
+    if meta.get('id') != cfg['mod_id'] or not str(meta.get('name', '')).endswith('(local dev)'):
+        raise ValueError(f'{dst} 不是 --install 装的开发副本，不删')
+    if game_running():
+        raise RuntimeError('游戏正在运行，模组目录被占用；关掉游戏再卸载')
+    shutil.rmtree(dst)
+    print(f'已删除开发副本 {dst}')
 
 
 def main():
@@ -344,6 +364,7 @@ def main():
     mode.add_argument('--check', action='store_true', help='只检查数据和配置')
     mode.add_argument('--verify', type=Path, help='核对已构建的目录')
     mode.add_argument('--install', action='store_true', help='开发用：构建到 dist/dev 并装进本机')
+    mode.add_argument('--uninstall', action='store_true', help='删掉 --install 装的开发副本')
     ap.add_argument('--output', type=Path, help='构建目录（必须是新的）')
     ap.add_argument('--only-written', action='store_true', help='和 --install 一起用：只放 written')
     ap.add_argument('--game-root', type=Path, help='EU5 安装目录，和 --check 一起用')
@@ -376,6 +397,8 @@ def main():
         write_tree(payload(ROOT, cfg, rows), out)
         print(f'构建 {len(rows)} 条到 {out}')
         install(cfg, out)
+    elif a.uninstall:
+        uninstall(cfg)
     else:
         if not a.output:
             ap.error('正式构建要给 --output dist/<新目录>')

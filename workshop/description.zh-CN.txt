@@ -4,8 +4,8 @@
 
 [h2]强烈推荐搭配以下 MOD 一起使用[/h2]
 [list]
-[*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=3833397845][b]历史人物描述[/b][/url]
-[*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=3830305546][b]地块描述[/b][/url]
+[*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=3833397845][b]所有历史人物的描述[/b][/url]
+[*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=3830305546][b]所有地块的描述[/b][/url]
 [/list]
 
 [img]https://images.steamusercontent.com/ugc/15396340188862483783/2144B6067F8B59749DB92DBBA0064EA6872388DA/[/img]
