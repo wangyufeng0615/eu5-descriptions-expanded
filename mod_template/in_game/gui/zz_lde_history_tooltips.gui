@@ -231,10 +231,17 @@ template CountryTooltip {
 						tooltipwidget = { using = ArmyOverview_tooltip }
 						spacing = 5
 						text_single = {
-							visible = "[HasArmySizeIntelOn(Country.Self)]"
+							visible = "[And(HasArmySizeIntelOn(Country.Self), EqualTo_string(Localize('glorpui_name'), 'glorpui_name'))]"
 							autoresize = yes
 							align = right
 							raw_text = "[Country.GetRaisedAndPotentialLevyStrength] @levy! / [Country.GetRegularArmySize|0L] @regular!"
+						}
+						# Glorp UI 的写法，只在 Glorp UI 启用时显示
+						text_single = {
+							visible = "[And(HasArmySizeIntelOn(Country.Self), Not(EqualTo_string(Localize('glorpui_name'), 'glorpui_name')))]"
+							autoresize = yes
+							align = right
+							raw_text = "[Country.GetRaisedAndPotentialLevyStrength] [levies_icon] / [Country.GetRegularArmySize|0L] [regulars_icon] / [Country.GetMercenaryArmySize|0L] [mercenary_icon]"
 						}
 						text_single = {
 							visible = "[Not(HasArmySizeIntelOn(Country.Self))]"
@@ -280,10 +287,17 @@ template CountryTooltip {
 						tooltipwidget = { using = NavyOverview_tooltip }
 						spacing = 5
 						text_single = {
-							visible = "[HasNavyStrengthIntelOn(Country.Self)]"
+							visible = "[And(HasNavyStrengthIntelOn(Country.Self), EqualTo_string(Localize('glorpui_name'), 'glorpui_name'))]"
 							autoresize = yes
 							align = right
 							text = "[Country.GetTotalNavyStrengthAndPotentialLevies|0L]"
+						}
+						# Glorp UI 的写法，只在 Glorp UI 启用时显示
+						text_single = {
+							visible = "[And(HasNavyStrengthIntelOn(Country.Self), Not(EqualTo_string(Localize('glorpui_name'), 'glorpui_name')))]"
+							autoresize = yes
+							align = right
+							raw_text = "[Country.GetNavyLevyPower|0L] [navy_levies_icon] / [Country.GetRegularNavySize|0L] @naval_regular!"
 						}
 						text_single = {
 							visible = "[Not(HasNavyStrengthIntelOn(Country.Self))]"
@@ -395,6 +409,20 @@ template CountryTooltip {
 				visible = "[And(Not(Country.IsLocalPlayer), Country.GetDiplomacy.IsAtWar)]"
 				blockoverride "text" {
 					text = "COUNTRY_TOOLTIP_IS_AT_WAR"
+				}
+				# Glorp UI 的军队概览，只在 Glorp UI 启用时显示
+				TooltipStringPairList = {
+					visible = "[And(Country.HasArmy, Not(EqualTo_string(Localize('glorpui_name'), 'glorpui_name')))]"
+					blockoverride "block_title" {
+						text = "CURRENT_ARMY_OVERVIEW"
+					}
+					textcontext = "[Country.GetArmyBreakdown]"
+				}
+				TooltipTextBlock = {
+					visible = "[And(Not(Country.HasArmy), Not(EqualTo_string(Localize('glorpui_name'), 'glorpui_name')))]"
+					blockoverride "text" {
+						text = "CAW_NO_CURRENT_ARMY"
+					}
 				}
 				tooltip_enabled = "[DataModelHasItems(Country.GetDiplomacy.GetCurrentWars)]"
 				tooltipwidget = {
