@@ -4,12 +4,12 @@
     {"key": "dynasty", "vanilla": 0, "mod": 800, "total": 800},
     {"key": "culture", "vanilla": 0, "mod": 2087, "total": 2087},
     {"key": "culture_group", "vanilla": 213, "mod": 213, "total": 213},
-    {"key": "religion", "vanilla": 293, "mod": 291, "total": 293},
-    {"key": "religious_aspect", "vanilla": 177, "mod": 172, "total": 177},
-    {"key": "god", "vanilla": 127, "mod": 118, "total": 127},
+    {"key": "religion", "vanilla": 293, "mod": 293, "total": 293},
+    {"key": "religious_aspect", "vanilla": 177, "mod": 177, "total": 177},
+    {"key": "god", "vanilla": 127, "mod": 127, "total": 127},
     {"key": "holy_site", "vanilla": 8, "mod": 257, "total": 257},
     {"key": "language", "vanilla": 14, "mod": 528, "total": 528},
     {"key": "language_family", "vanilla": 0, "mod": 56, "total": 56},
-    {"key": "total", "vanilla": 832, "mod": 6088, "total": 6104}
+    {"key": "total", "vanilla": 832, "mod": 6104, "total": 6104}
   ]
 }

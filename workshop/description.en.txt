@@ -1,6 +1,6 @@
 Adds authentic EU5-flavoured descriptions to all kinds of miscellaneous entries: countries, dynasties, cultures, culture groups, religions, religious aspects, gods, holy sites, languages and language families! Hover over one to read it.
 
-[b]6,088[/b] descriptions in total:
+[b]6,104[/b] descriptions in total:
 
 [img]{{coverage}}[/img]
 
