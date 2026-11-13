@@ -1,6 +1,6 @@
 # Descriptions Expanded: Countries, Cultures, Dynasties & More
 
-English and Simplified Chinese descriptions for 5,294 countries, cultures, dynasties, languages, language families and holy sites in Europa Universalis V. Hover over one of them; the description is at the bottom of the tooltip. The game language picks English or Chinese.
+English and Simplified Chinese descriptions for 6,088 countries, dynasties, cultures, culture groups, religions, religious aspects, gods, holy sites, languages and language families in Europa Universalis V. Hover over one of them; the description is at the bottom of the tooltip. The game language picks English or Chinese. Where the game already has a description, it is kept and the new text follows it as extra paragraphs.
 
 Dynasties show their description through the dynasty head, so a dynasty with no living member has none.
 

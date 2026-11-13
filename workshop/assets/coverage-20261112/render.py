@@ -28,7 +28,7 @@ TEXT = {
            'religious_aspect': ('Religious aspects', 'All religious aspects in the game'),
            'god': ('Gods', 'All gods in the game'),
            'total': ('All', None),
-           'legend': ('Vanilla description', 'Added by this mod')},
+           'legend': ('Vanilla description only', 'Written or extended by this mod')},
     'zh-CN': {'head': ('类别', '原版', '本模组', '覆盖率'),
               'country': ('国家', '1337 年有领土的全部国家'),
               'culture': ('文化', '游戏里的全部文化'),
@@ -41,7 +41,7 @@ TEXT = {
               'religious_aspect': ('宗教信条', '游戏里的全部宗教信条'),
               'god': ('神祇', '游戏里的全部神祇'),
               'total': ('合计', None),
-              'legend': ('原版自带描述', '本模组新增')},
+              'legend': ('仅原版描述', '本模组撰写或补充')},
 }
 
 
@@ -54,14 +54,18 @@ def text(draw, xy, s, f, fill, anchor='ls'):
 
 
 def bar(draw, x, y, w, h, vanilla, mod, total):
+    """绿色：本模组撰写或补充的条数；紧接着的灰色：只有原版描述、本模组没有补充的条数。
+    2026-11-13 起原版描述保留、我们的接在后面，所以原版有描述且我们补充了的算绿色。"""
     r = h / 2
     draw.rounded_rectangle((x * S, y * S, (x + w) * S, (y + h) * S), r * S, fill=TRACK)
+    only = min(vanilla, total - mod)
+    if only:
+        ex = x + max(w * (mod + only) / total, h)
+        draw.rounded_rectangle((x * S, y * S, ex * S, (y + h) * S), r * S, fill=GREY)
     gx = x + w * mod / total
     draw.rounded_rectangle((x * S, y * S, gx * S, (y + h) * S), r * S, fill=GREEN)
-    if vanilla:
-        vx = x + max(w * vanilla / total, h)
-        draw.rounded_rectangle((x * S, y * S, vx * S, (y + h) * S), r * S, fill=GREY)
-        draw.rectangle(((vx - r) * S, y * S, vx * S, (y + h) * S), fill=GREY)
+    if only:
+        draw.rectangle(((gx - r) * S, y * S, gx * S, (y + h) * S), fill=GREEN)
 
 
 def render(lang, data):

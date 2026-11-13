@@ -1,12 +1,13 @@
 Adds authentic EU5-flavoured descriptions to all kinds of miscellaneous entries: countries, dynasties, cultures, culture groups, religions, religious aspects, gods, holy sites, languages and language families! Hover over one to read it.
 
-[b]5,294[/b] descriptions in total:
+[b]6,088[/b] descriptions in total:
 
 [img]{{coverage}}[/img]
 
 [list]
 [*]Languages: English, Chinese
 [*]Strictly keeps EU5's flavour
+[*]Where the game already has a description (religions, culture groups, gods and more), it is kept and extended with new paragraphs
 [*]Can be added to an existing save
 [*]Ironman and achievement compatible
 [*]Highly recommended together with my [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3833397845]historical character descriptions[/url] and [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3830305546]tile descriptions[/url] mods
