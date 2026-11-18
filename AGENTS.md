@@ -40,7 +40,7 @@ python -B tools\build.py --verify dist\<新目录>
 
 1. **更新数据**：研究工程评审流程跑完后 `tools/sync_workshop.sh`，进游戏看几个国家、文化、王朝、圣地的浮窗（中英文各看）。
 2. **准备版本**：`python -B tools\release.py <版本> --note "..." --install --commit`。升版本号、写 `CHANGELOG.md`、跑测试和检查、构建到 `dist\release-<版本>\`、核对、装进游戏并提交；失败会改回去。`project.json` 初始版本是 0.0.0，本模组首次打包为 1.0.0。用 `--install` 时会另外装入本地副本。
-3. **第一次上传**：作者确认后，在登录了 Steam 的桌面会话里依次运行（都用计划任务放进桌面会话：`schtasks /create ... /ru <用户名> /it` 再 `/run`，跑完删任务）：
+3. **第一次上传**：作者确认后，在登录了 Steam 的桌面会话里依次运行：
    1. `python -B tools\steam_create.py 0.1.0 --notes-file workshop\changenotes.en.txt --output dist\create-0.1.0.json`：建私密条目，Steam 返回编号就写进 `project.json`。
    2. `python -B tools\steam_page.py --host-images --output dist\host-images.json`：把覆盖表图（`workshop/assets/coverage-20261112/`，`render.py` 在 Windows 上生成）存进 Steam 云并公开分享，网址记进 `page.json` 的 `description_image_urls`。托管要求条目已存在，所以放在建条目之后。
    3. 把两张图的网址各写成一行 `[img]<网址>[/img]`，插在 `description.*.txt` 的标题下面，再 `steam_page.py --descriptions` 推中英文标题和描述，`--assets` 补中文封面和截图。
