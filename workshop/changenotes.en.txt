@@ -1,2 +1,3 @@
-1.1.1
-Coverage is now 100% (7,075 descriptions): adds the last 18 entries, including Pirates, Mercenaries, the old German kingdom and the Tristutik Gaccha religious school.
+1.1.2
+- Rewrote over 2,100 major and minor country descriptions in English and Simplified Chinese for richer historical flavor and stronger 1337 context.
+- Editorial quality pass across 66 high-frequency countries, cultures, dynasties, holy sites, and religions: unified cross-mod historical terminology, improved prose flow, and aligned EN-ZH details.
