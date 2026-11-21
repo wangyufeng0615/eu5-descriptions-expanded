@@ -1,3 +1,2 @@
-1.1.2
-- Rewrote over 2,100 major and minor country descriptions in English and Simplified Chinese for richer historical flavor and stronger 1337 context.
-- Editorial quality pass across 66 high-frequency countries, cultures, dynasties, holy sites, and religions: unified cross-mod historical terminology, improved prose flow, and aligned EN-ZH details.
+1.2.3
+Editorial quality pass across 66 high-frequency countries, cultures, dynasties, holy sites, and religions in English and Simplified Chinese: unified cross-mod historical terminology, improved prose flow, and aligned EN-ZH details.
