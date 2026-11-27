@@ -1,30 +1,42 @@
 Adds EU5-flavoured English and Chinese descriptions to [b]7,075[/b] countries, dynasties, cultures, religions, gods, chivalric orders, holy sites, languages and more. Hover over one to read it. Where the game already has a description, it is kept and continued.
 
+⭐ [b]Strongly recommended: subscribe to the other two EU5 mods as well.[/b] Together the three cover the map, its people and its countries.
+[list]
+[*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=3830305546][b]Descriptions for Every Tile[/b][/url]: descriptions for all 28,316 tiles on the map
+[*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=3833397845][b]Descriptions for Every Historical Character[/b][/url]: biographies for 7,789 historical characters, shown on hover
+[/list]
+Or subscribe to all three at once from [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3838947253][b]the collection[/b][/url].
+
 [img]https://images.steamusercontent.com/ugc/17520290482999112992/205B848F6D14ADC45576FCA994E65271349F38E5/[/img]
 
 [list]
 [*]English and Chinese
 [*]Achievement compatible
+[*]Safe to add or remove mid-game
 [/list]
 
 [h2]My other mods[/h2]
-[b]Europa Universalis V[/b]: best used all three together
-[list]
-[*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=3830305546][b]Descriptions for Every Tile[/b][/url]: descriptions for all 28,316 tiles on the map
-[*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=3833397845][b]Descriptions for Every Historical Character[/b][/url]: biographies for 7,789 historical characters, shown on hover
-[/list]
 [b]Europa Universalis IV[/b]
 [list]
 [*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=3833082096][b]Descriptions for Every Province and Great Project[/b][/url]: descriptions for all 3,272 land provinces and 139 great projects
 [/list]
 
 [h2]Compatibility[/h2]
-Checked file by file against the 60 most-subscribed EU5 mods. Only these need attention:
-[list]
-[*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=3601047146]Glorp UI[/url]: both change the country tooltip, so only one takes effect. A compatibility patch is planned.
-[*]Mods that add countries, cultures or religions: they work, but what they add has no description.
-[*]A few translation and content mods change some of the same texts; load order decides.
-[/list]
+[b]Compatible with[/b]: [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3692202776]Community Mod Framework (CMF)[/url]; [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3601047146]Glorp UI[/url] (place this mod below Glorp UI in your playset, or the country descriptions are hidden)
 
 [h2]Feedback[/h2]
 If you find a mistake, please leave a comment and I'll fix it.
+
+[h2]Update history[/h2]
+[list]
+[*]1.2.3: Polished 66 of the most-viewed countries, cultures, dynasties, holy sites and religions: names now match the other two mods, and the English and Chinese agree in every detail.
+[*]1.2.2: Rewrote the descriptions of the remaining countries in the same style as the major ones, bringing out what each place was known for.
+[*]1.2.1: Rewrote the descriptions of about 200 major countries to bring out what made each one distinctive, with the people, battles and scenes behind their rise and fall.
+[*]1.2.0: Rewrote most country descriptions: about 40% shorter, with more on what happened between 1337 and 1837.
+[*]1.1.4: Removed the English copies for other game languages added in 1.1.3; the download is back to its earlier size.
+[*]1.1.3: Other game languages (French, German, Spanish and more) now show the English descriptions.
+[*]1.1.2: Compatible with Glorp UI: the country tooltip keeps Glorp's army breakdown and also shows the description. Place this mod below Glorp UI.
+[*]1.1.1: Every object now has a description (7,075 in total); added the last 18, including Pirates, Mercenaries and the old German kingdom.
+[*]1.1.0: Added 953 descriptions: 865 countries that appear later in the game, including formable nations, plus religion groups, religious schools and chivalric orders. Long descriptions now scroll fully in the tooltip.
+[*]1.0.0: First release, with English and Chinese descriptions in ten categories.
+[/list]

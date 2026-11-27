@@ -1,31 +1,43 @@
 为国家、王朝、文化、宗教、神祇、骑士团、圣地、语言等 [b]7,075[/b] 个对象补上 EU5 风味的中英文介绍，鼠标悬停即可看到。原版已有描述的，保留原文并接着补写。
 
+⭐ [b]强烈推荐同时订阅另外两个 MOD[/b]，三个合起来覆盖地图、人物和国家。
+[list]
+[*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=3830305546][b]所有地块的描述[/b][/url]：地图上全部 28,316 个地块的介绍
+[*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=3833397845][b]所有历史人物的描述[/b][/url]：7,789 位历史人物的生平，悬停人物即可看到
+[/list]
+也可以进入[url=https://steamcommunity.com/sharedfiles/filedetails/?id=3838947253][b]合集[/b][/url]，一次订阅全部三个。
+
 [img]https://images.steamusercontent.com/ugc/14232436394044768126/2FE3E6C082F1AF30FECBC07EB9DDB9F6D3181826/[/img]
 
 [list]
 [*]支持英文、中文
 [*]兼容成就
+[*]支持存档中途加入和移除
 [/list]
 
 [h2]我的其他 MOD[/h2]
-[b]欧陆风云5[/b]：建议三个一起订阅
-[list]
-[*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=3830305546][b]所有地块的描述[/b][/url]：地图上全部 28,316 个地块的介绍
-[*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=3833397845][b]所有历史人物的描述[/b][/url]：7,789 位历史人物的生平，悬停人物即可看到
-[/list]
 [b]欧陆风云4[/b]
 [list]
 [*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=3833082096][b]所有省份和伟大工程的描述[/b][/url]：3,272 个陆地省份和 139 座伟大工程的介绍
 [/list]
 
 [h2]兼容性[/h2]
-已与订阅数前 60 的 EU5 模组逐个比对文件，需要留意的只有：
-[list]
-[*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=3601047146]Glorp UI[/url]：两者都改了国家浮窗，同时启用只有一方生效，计划出兼容补丁。
-[*]新增国家、文化、宗教的模组：可以一起用，新增的对象没有介绍。
-[*]少数汉化和内容模组改了几条同名文本，看加载顺序。
-[/list]
+[b]已确认兼容[/b]：[url=https://steamcommunity.com/sharedfiles/filedetails/?id=3692202776]Community Mod Framework（CMF）[/url]；[url=https://steamcommunity.com/sharedfiles/filedetails/?id=3601047146]Glorp UI[/url]（播放集里把本模组排在 Glorp UI 下面，否则国家介绍不显示）
 
 [h2]反馈与交流[/h2]
 发现错误欢迎留言，我会持续订正。
 QQ 群：[b]518622967[/b]
+
+[h2]更新记录[/h2]
+[list]
+[*]1.2.3：润色了66个最常看到的国家、文化、王朝、圣地和宗教，译名与另外两个模组统一，中英文细节一致。
+[*]1.2.2：按大国的写法重写了其余国家的介绍，写出每个地方的特点。
+[*]1.2.1：重写约200个大国的介绍，写出各国的性格，以及兴衰背后的人物、战役和场面。
+[*]1.2.0：重写了大部分国家的介绍：篇幅缩短约四成，更多写1337—1837年间的历史。
+[*]1.1.4：撤回1.1.3给其他游戏语言加的英文副本，模组恢复原来的大小。
+[*]1.1.3：法语、德语、西班牙语等其他游戏语言下显示英文介绍。
+[*]1.1.2：兼容 Glorp UI，国家浮窗保留 Glorp 的兵力明细，同时显示介绍。请把本模组排在 Glorp UI 下面。
+[*]1.1.1：覆盖率达到100%（共7,075条），补上最后18条，包括海盗、雇佣兵和旧德意志王国。
+[*]1.1.0：新增953条：游戏中后期才出现的865个国家（含可建立的国家），以及宗教组、宗教学派和骑士团；长介绍在浮窗里可以完整滚动。
+[*]1.0.0：首次发布，十个类目的中英文介绍。
+[/list]
